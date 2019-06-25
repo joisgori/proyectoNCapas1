@@ -52,10 +52,10 @@
 				<td> ${DatosPelicula.pName} </td>
 				<td> ${DatosPelicula.pImage} </td>
 				<td> ${DatosPelicula.pDuration} </td>
-				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimEmp?id_pelicula=${DatosEmpleado.idEmpleado}&codigo_sucursal=${DatosSucursal.codigoSucursal}'"
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimEmp?id_pelicula=${DatosPelicula.cMovie}'"
 				> Eliminar Película</button> </td>
-				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarEmp?id_pelicula=${DatosEmpleado.idEmpleado}&codigo_sucursal=${DatosSucursal.codigoSucursal}'" 
-				>Editar Película</button> </td>
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarEmp?id_pelicula=${DatosPelicula.cMovie}'" 
+				> Editar Película</button> </td>
 			</tr>
 		</c:forEach>
 </table>
