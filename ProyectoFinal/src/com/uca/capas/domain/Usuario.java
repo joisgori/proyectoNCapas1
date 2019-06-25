@@ -53,6 +53,9 @@ public class Usuario {
 
 	@Column(name = "saldo_cuenta")
 	private Double saldoCuenta;
+	
+	@Column(name = "is_logged")
+	private Boolean loggedIn;
 
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private List<Reserva> reserva;
@@ -63,11 +66,10 @@ public class Usuario {
 
 	public Usuario() {
 		super();
-// TODO Auto-generated constructor stub
 	}
 
 	public Usuario(Integer cUsuario, String aUsuario, String aApellido, String fNacimiento, String resUsuario,
-			Boolean estadoUsuario, String user, String pass, String nUsuario, Double saldoCuenta, List<Reserva> reserva,
+			Boolean estadoUsuario, String user, String pass, String nUsuario, Double saldoCuenta, Boolean loggedIn, List<Reserva> reserva,
 			Usuario usuario) {
 		super();
 		this.cUsuario = cUsuario;
@@ -80,6 +82,7 @@ public class Usuario {
 		this.pass = pass;
 		this.nUsuario = nUsuario;
 		this.saldoCuenta = saldoCuenta;
+		this.loggedIn = loggedIn;
 		this.reserva = reserva;
 		this.usuario = usuario;
 	}
@@ -180,4 +183,12 @@ public class Usuario {
 		this.usuario = usuario;
 	}
 
+	public Boolean getLoggedIn() {
+		return loggedIn;
+	}
+
+	public void setLoggedIn(Boolean loggedIn) {
+		this.loggedIn = loggedIn;
+	}
+	
 }
