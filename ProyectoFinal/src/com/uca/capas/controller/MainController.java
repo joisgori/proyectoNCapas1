@@ -7,7 +7,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MainController {
 
-	@RequestMapping("/")
+	@RequestMapping("/a")
 	public String initMain() {
 		return "main";
 	}

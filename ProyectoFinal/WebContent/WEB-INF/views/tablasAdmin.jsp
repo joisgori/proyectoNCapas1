@@ -12,7 +12,7 @@
 	<h1>Tabla de clientes</h1>
 
 <table>
-	<c:forEach items="${DatosCliente}" var="DatosCliente">
+	
 		<tr>
 			<th> ID usuario </th>
 			<th> Nombre de usuario </th>
@@ -21,6 +21,7 @@
 			<th> User login </th>
 			<th> Saldo de cuenta </th>
 		</tr>
+		<c:forEach items="${DatosCliente}" var="DatosCliente">
 			<tr> 
 			<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
 				<td> ${DatosCliente.cUsuario} </td>
