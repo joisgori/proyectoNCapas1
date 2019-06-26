@@ -36,6 +36,13 @@ public class TipoPelicula {
 		this.aTpeli = aIpeli;
 		this.pelicula = pelicula;
 	}
+	
+
+	public TipoPelicula() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 
 	public Integer getcTipoP() {
 		return cTipoP;

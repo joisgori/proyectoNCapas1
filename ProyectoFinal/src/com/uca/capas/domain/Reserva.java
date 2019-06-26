@@ -28,6 +28,18 @@ public class Reserva {
 	@JoinColumn(name = "id_pelicula")
 	private Movie pelicula;
 
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_usuario")
+	private Usuario usuario;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_asiento")
+	private Asiento asiento;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_sala")
+	private Sala sala;
+	
 	public Integer getcReserva() {
 		return cReserva;
 	}
@@ -44,10 +56,15 @@ public class Reserva {
 		this.pelicula = pelicula;
 	}
 
-	public Reserva(Integer cReserva, Movie pelicula) {
+
+
+	public Reserva(Integer cReserva, Movie pelicula, Usuario usuario, Asiento asiento, Sala sala) {
 		super();
 		this.cReserva = cReserva;
 		this.pelicula = pelicula;
+		this.usuario = usuario;
+		this.asiento = asiento;
+		this.sala = sala;
 	}
 
 	public Reserva() {

@@ -36,6 +36,15 @@ public class Horario {
 		this.aHpeli = aHpeli;
 		this.pelicula = pelicula;
 	}
+	
+	
+
+	public Horario() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	public Integer getcHorario() {
 		return cHorario;

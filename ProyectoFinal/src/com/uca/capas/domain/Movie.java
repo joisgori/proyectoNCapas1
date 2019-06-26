@@ -31,25 +31,25 @@ public class Movie {
 	@Column(name="duracion")
 	private String pDuration;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
 	private List<Actor> actor;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
 	private List<TipoPelicula> tipopelicula;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
 	private List<Genero> genero;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
 	private List<Idiomas> idiomas;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
 	private List<Horario> horario;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
 	private List<SxP> salaxpelicula;
 		
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
 	private List<Reserva> reserva;
 	
 	
@@ -61,6 +61,15 @@ public class Movie {
 		this.pDuration = pDuration;
 	}
 	
+	
+	
+	public Movie() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public Integer getcMovie() {
 		return cMovie;
 	}

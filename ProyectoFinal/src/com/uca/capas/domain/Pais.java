@@ -32,6 +32,15 @@ public class Pais {
 		this.cPais = cPais;
 		this.pNombre = pNombre;
 	}
+	
+	
+
+	public Pais() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	public Integer getcPais() {
 		return cPais;

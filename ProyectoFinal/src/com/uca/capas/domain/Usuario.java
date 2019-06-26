@@ -18,12 +18,11 @@ import com.uca.capas.domain.Reserva;
 
 @Entity
 @Table(schema = "public", name = "usuario")
-
 public class Usuario {
 
 	@Id
-	@GeneratedValue(generator = "provincia_id_provincia_seq", strategy = GenerationType.AUTO)
-	@SequenceGenerator(name = "provincia_id_provincia_seq", sequenceName = "public.provincia_id_provincia_seq", allocationSize = 1)
+	@GeneratedValue(generator = "usuario_id_usuario_seq", strategy = GenerationType.AUTO)
+	@SequenceGenerator(name = "usuario_id_usuario_seq", sequenceName = "public.usuario_id_usuario_seq", allocationSize = 1)
 	@Column(name = "id_usuario")
 	private Integer cUsuario;
 
@@ -62,15 +61,16 @@ public class Usuario {
 
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_provincia")
-	private Usuario usuario;
+	private Provincia provincia;
 
 	public Usuario() {
 		super();
 	}
 
+	
 	public Usuario(Integer cUsuario, String aUsuario, String aApellido, String fNacimiento, String resUsuario,
-			Boolean estadoUsuario, String user, String pass, String nUsuario, Double saldoCuenta, Boolean loggedIn, List<Reserva> reserva,
-			Usuario usuario) {
+			Boolean estadoUsuario, String user, String pass, String nUsuario, Double saldoCuenta, Boolean loggedIn,
+			List<Reserva> reserva, Provincia provincia) {
 		super();
 		this.cUsuario = cUsuario;
 		this.aUsuario = aUsuario;
@@ -84,7 +84,7 @@ public class Usuario {
 		this.saldoCuenta = saldoCuenta;
 		this.loggedIn = loggedIn;
 		this.reserva = reserva;
-		this.usuario = usuario;
+		this.provincia = provincia;
 	}
 
 	public Integer getcUsuario() {
@@ -175,13 +175,17 @@ public class Usuario {
 		this.reserva = reserva;
 	}
 
-	public Usuario getUsuario() {
-		return usuario;
+
+
+	public Provincia getProvincia() {
+		return provincia;
 	}
 
-	public void setUsuario(Usuario usuario) {
-		this.usuario = usuario;
+
+	public void setProvincia(Provincia provincia) {
+		this.provincia = provincia;
 	}
+
 
 	public Boolean getLoggedIn() {
 		return loggedIn;

@@ -34,14 +34,33 @@ public class Asiento {
 	
 	@OneToMany(mappedBy = "asiento", fetch = FetchType.EAGER)
 	private List<Reserva> reserva;
+	
+	@OneToMany(mappedBy = "asiento", fetch = FetchType.EAGER)
+	private List<Sala> sala;
 
-	public Asiento(Integer cAsiento, String aFila, String aColumna, Boolean aEstado) {
+	
+	
+	
+
+	public Asiento(Integer cAsiento, String aFila, String aColumna, Boolean aEstado, List<Reserva> reserva,
+			List<Sala> sala) {
 		super();
 		this.cAsiento = cAsiento;
 		this.aFila = aFila;
 		this.aColumna = aColumna;
 		this.aEstado = aEstado;
+		this.reserva = reserva;
+		this.sala = sala;
 	}
+
+
+
+	public Asiento() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	public Integer getcAsiento() {
 		return cAsiento;
@@ -82,4 +101,17 @@ public class Asiento {
 	public void setReserva(List<Reserva> reserva) {
 		this.reserva = reserva;
 	}
+
+
+
+	public List<Sala> getSala() {
+		return sala;
+	}
+
+
+	public void setSala(List<Sala> sala) {
+		this.sala = sala;
+	}
+	
+	
 }

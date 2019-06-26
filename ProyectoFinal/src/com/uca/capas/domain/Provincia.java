@@ -32,7 +32,7 @@ public class Provincia {
 	@JoinColumn(name = "id_estado")
 	private Estado estado;
 	
-	@OneToMany(mappedBy = "estado", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "provincia", fetch = FetchType.EAGER)
 	private List<Usuario> usuario;
 
 	public Provincia(Integer cProvincia, String proNombre, Estado estado) {
@@ -41,6 +41,13 @@ public class Provincia {
 		this.proNombre = proNombre;
 		this.estado = estado;
 	}
+	
+
+	public Provincia() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 
 	public Integer getcProvincia() {
 		return cProvincia;

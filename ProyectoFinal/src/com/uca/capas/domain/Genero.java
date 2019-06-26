@@ -37,6 +37,15 @@ public class Genero {
 		this.pelicula = pelicula;
 	}
 	
+	
+	
+	public Genero() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
+
 	public Integer getcGenero() {
 		return cGenero;
 	}

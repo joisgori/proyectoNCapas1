@@ -41,6 +41,15 @@ public class Estado {
 		this.eNombre = eNombre;
 		this.pais = pais;
 	}
+	
+	
+
+	public Estado() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	public Integer getcEstado() {
 		return cEstado;

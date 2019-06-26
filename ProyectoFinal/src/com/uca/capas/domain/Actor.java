@@ -39,6 +39,15 @@ public class Actor {
 		this.aApellido = aApellido;
 		this.pelicula = pelicula;
 	}
+	
+	
+
+	public Actor() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	public Integer getcActores() {
 		return cActores;

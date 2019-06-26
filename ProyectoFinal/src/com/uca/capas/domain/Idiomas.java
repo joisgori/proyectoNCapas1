@@ -36,6 +36,15 @@ public class Idiomas {
 		this.aIpeli = aIpeli;
 		this.pelicula = pelicula;
 	}
+	
+	
+
+	public Idiomas() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+
 
 	public Integer getcIdioma() {
 		return cIdioma;
