@@ -10,5 +10,10 @@ public interface UsuarioService {
 	public List<Usuario> findByNUsuario(String usuario);
 	
 	public List<Usuario> findAll();
+	
+	//Creo los métodos delete y save
+	public void delete(Usuario usuario);
+	
+	public Usuario save(Usuario usuario);
 
 }
