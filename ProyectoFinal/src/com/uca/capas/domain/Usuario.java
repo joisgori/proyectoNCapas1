@@ -55,22 +55,21 @@ public class Usuario {
 	
 	@Column(name = "is_logged")
 	private Boolean loggedIn;
+	
+	@Column(name = "departamento")
+	private String uDepartamento;
 
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private List<Reserva> reserva;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_provincia")
-	private Provincia provincia;
 
 	public Usuario() {
 		super();
 	}
 
-	
 	public Usuario(Integer cUsuario, String aUsuario, String aApellido, String fNacimiento, String resUsuario,
 			Boolean estadoUsuario, String user, String pass, String nUsuario, Double saldoCuenta, Boolean loggedIn,
-			List<Reserva> reserva, Provincia provincia) {
+			String uDepartamento, List<Reserva> reserva) {
 		super();
 		this.cUsuario = cUsuario;
 		this.aUsuario = aUsuario;
@@ -83,8 +82,8 @@ public class Usuario {
 		this.nUsuario = nUsuario;
 		this.saldoCuenta = saldoCuenta;
 		this.loggedIn = loggedIn;
+		this.uDepartamento = uDepartamento;
 		this.reserva = reserva;
-		this.provincia = provincia;
 	}
 
 	public Integer getcUsuario() {
@@ -167,6 +166,22 @@ public class Usuario {
 		this.saldoCuenta = saldoCuenta;
 	}
 
+	public Boolean getLoggedIn() {
+		return loggedIn;
+	}
+
+	public void setLoggedIn(Boolean loggedIn) {
+		this.loggedIn = loggedIn;
+	}
+
+	public String getuDepartamento() {
+		return uDepartamento;
+	}
+
+	public void setuDepartamento(String uDepartamento) {
+		this.uDepartamento = uDepartamento;
+	}
+
 	public List<Reserva> getReserva() {
 		return reserva;
 	}
@@ -175,24 +190,5 @@ public class Usuario {
 		this.reserva = reserva;
 	}
 
-
-
-	public Provincia getProvincia() {
-		return provincia;
-	}
-
-
-	public void setProvincia(Provincia provincia) {
-		this.provincia = provincia;
-	}
-
-
-	public Boolean getLoggedIn() {
-		return loggedIn;
-	}
-
-	public void setLoggedIn(Boolean loggedIn) {
-		this.loggedIn = loggedIn;
-	}
 	
 }
