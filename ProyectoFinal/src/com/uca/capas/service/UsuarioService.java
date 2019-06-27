@@ -8,5 +8,7 @@ import com.uca.capas.domain.Usuario;
 public interface UsuarioService {
 	
 	public List<Usuario> findByNUsuario(String usuario);
+	
+	public List<Usuario> findAll();
 
 }
