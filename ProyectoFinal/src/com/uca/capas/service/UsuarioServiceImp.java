@@ -2,6 +2,8 @@ package com.uca.capas.service;
 
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,9 +20,19 @@ public class UsuarioServiceImp implements UsuarioService{
 		return usuarioRepository.findByNUsuario(usario);
 	}
 
-
 	public List<Usuario> findAll() {
 		return usuarioRepository.findAll();
+	}
+	
+	//implemento los métodos de servicio y mando a llamar de los repos
+	@Transactional
+	public Usuario save(Usuario usuario) {
+		return usuarioRepository.save(usuario);
+	}
+	
+	@Transactional
+	public void delete(Usuario usuario) {
+		usuarioRepository.delete(usuario);
 	}
 
 }
