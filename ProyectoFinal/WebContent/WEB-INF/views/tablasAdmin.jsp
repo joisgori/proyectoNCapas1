@@ -14,7 +14,6 @@
 <table>
 	
 		<tr>
-			<th> ID usuario </th>
 			<th> Nombre de usuario </th>
 			<th> Apellido de usuario </th>
 			<th> User login </th>
@@ -23,7 +22,6 @@
 		<c:forEach items="${DatosCliente}" var="DatosCliente">
 			<tr> 
 			<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
-				<td> ${DatosCliente.cUsuario} </td>
 				<td> ${DatosCliente.aUsuario} </td>
 				<td> ${DatosCliente.aApellido} </td>
 				<td> ${DatosCliente.user} </td>

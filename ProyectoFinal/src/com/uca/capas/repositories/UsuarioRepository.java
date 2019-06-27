@@ -16,5 +16,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	public List<Usuario> findByNUsuario(@Param("user_type") String user_type);
 	
 	public List<Usuario> findAll();
+	
+	public Usuario findByUserAndPass(String user, String pass);
 
 }
