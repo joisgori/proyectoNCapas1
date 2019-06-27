@@ -34,7 +34,7 @@ public class MainController {
 		if(user.getnUsuario().equals("Cliente")) {
 			mav.setViewName("redirect:/todos");
 		}
-		else if(user.getnUsuario() == "Administrador"){
+		else if(user.getnUsuario().equals("Administrador")){
 			mav.setViewName("formPelis");
 		}else {
 			System.out.println("Algo");
