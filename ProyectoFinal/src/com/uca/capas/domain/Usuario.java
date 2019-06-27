@@ -29,7 +29,7 @@ public class Usuario {
 	@Column(name = "nombre_usuario")
 	private String aUsuario;
 
-	@Column(name = "Apellido_usuario")
+	@Column(name = "apellido_usuario")
 	private String aApellido;
 
 	@Column(name = "fecha_de_nacimiento")
@@ -56,7 +56,7 @@ public class Usuario {
 	@Column(name = "is_logged")
 	private Boolean loggedIn;
 
-	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
+	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
 	private List<Reserva> reserva;
 
 	@ManyToOne(fetch = FetchType.EAGER)

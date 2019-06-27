@@ -17,7 +17,6 @@
 			<th> ID usuario </th>
 			<th> Nombre de usuario </th>
 			<th> Apellido de usuario </th>
-			<th> horario de apertura </th>
 			<th> User login </th>
 			<th> Saldo de cuenta </th>
 		</tr>
@@ -43,6 +42,7 @@
 			<th> ID película </th>
 			<th> Nombre de película </th>
 			<th> Imagen de película </th>
+			<th> COPIA</th>
 			<th> Duración </th>
 			<!-- Creo que necesitaré hacer un DTO -->
 		</tr>
@@ -51,7 +51,8 @@
 			<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
 				<td> ${DatosPelicula.cMovie} </td>
 				<td> ${DatosPelicula.pName} </td>
-				<td> ${DatosPelicula.pImage} </td>
+				<td><img src="${DatosPelicula.pImage}"/></td>
+				<td><img src="resources/imagenes/ToyStory4.png" style="width:300px;height:300px"/></td>
 				<td> ${DatosPelicula.pDuration} </td>
 				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimEmp?id_pelicula=${DatosPelicula.cMovie}'"
 				> Eliminar Película</button> </td>

@@ -24,16 +24,19 @@ public class AdminController {
 	@RequestMapping("/")
 	public ModelAndView admin() {
 		ModelAndView mav = new ModelAndView();
-		List<Usuario> user = null;
+		//List<Usuario> user = null;
 		List<Movie> mov = null;
 		try {
-			user = usuarioRepository.findByNUsuario("Cliente");
+			//user = usuarioRepository.findByNUsuario("Cliente");
+			//user = usuarioRepository.findAll();
+			//System.out.println("SI hace algo" + user.toString());
 			mov = movieRepository.findAll();
+			System.out.println("si hace algo" + mov);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		mav.addObject("DatosCliente", user);
+		//mav.addObject("DatosCliente", user);
 		mav.addObject("DatosPelicula", mov);
 		
 		mav.setViewName("tablasAdmin");

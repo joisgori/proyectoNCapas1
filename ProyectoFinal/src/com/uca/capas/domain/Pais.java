@@ -33,8 +33,6 @@ public class Pais {
 		this.pNombre = pNombre;
 	}
 	
-	
-
 	public Pais() {
 		super();
 		// TODO Auto-generated constructor stub
