@@ -17,5 +17,16 @@ public class MovieServiceImp implements MovieService {
 	public List<Movie> findAll() {
 		return movieRepository.findAll();
 	}
-
+	
+	@Transactional //Mando a pedir este método delete del crud de jpa
+	public void delete(Movie movie) {
+		movieRepository.delete(movie);
+	}
+	
+	//Ahora va el Save
+	@Transactional
+	public Movie save(Movie movie) {
+		return movieRepository.save(movie);
+	}
+	
 }
