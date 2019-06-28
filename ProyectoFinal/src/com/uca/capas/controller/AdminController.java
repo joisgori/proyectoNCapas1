@@ -169,11 +169,12 @@ public class AdminController {
 	
 	//--> ahora sí va la lógica del guardado
 	@RequestMapping(value = "/guardarPelicula", method= RequestMethod.POST)
-	public ModelAndView saveSucursal(@Valid @ModelAttribute ("pelicula") Movie movie, BindingResult r) {
+	public ModelAndView saveSucursal(@ModelAttribute ("pelicula") Movie movie, BindingResult r) {
 		ModelAndView mav = new ModelAndView();
 		List<Movie> mov = null;
 		if(r.hasErrors()) {
 			mav.setViewName("formPelicula");
+			System.out.println(r.hasErrors());
 		}else {
 			movieService.save(movie);
 			mov = movieService.findAll();
@@ -184,17 +185,13 @@ public class AdminController {
 		}
 
 	@RequestMapping(value = "/guardarUsuario", method= RequestMethod.POST)
-	public ModelAndView saveSucursal(@Valid @ModelAttribute ("usuario") Usuario user, BindingResult r) {
+	public ModelAndView saveSucursal(@ModelAttribute ("usuario") Usuario usuario) {
 		ModelAndView mav = new ModelAndView();
 		List<Usuario> us = null;
-		if(r.hasErrors()) {
-			mav.setViewName("formCliente");
-		}else {
-			usuarioService.save(user);
+			usuarioService.save(usuario);
 			us = usuarioService.findAll();
 			mav.addObject("DatosCliente", us);
 			mav.setViewName("redirect:/todos");
-		}
 		return mav;
 		}
 	

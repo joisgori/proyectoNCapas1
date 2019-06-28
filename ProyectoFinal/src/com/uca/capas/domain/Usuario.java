@@ -1,5 +1,6 @@
 package com.uca.capas.domain;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -13,6 +14,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.uca.capas.domain.Reserva;
 
@@ -33,7 +36,36 @@ public class Usuario {
 	private String aApellido;
 
 	@Column(name = "fecha_de_nacimiento")
-	private String fNacimiento;
+	@DateTimeFormat(pattern = "yyyy/MM/dd")
+	private Date fNacimiento;
+
+	public Date getfNacimiento() {
+		return fNacimiento;
+	}
+
+	public void setfNacimiento(Date fNacimiento) {
+		this.fNacimiento = fNacimiento;
+	}
+
+	public Usuario(Integer cUsuario, String aUsuario, String aApellido, Date fNacimiento, String resUsuario,
+			Boolean estadoUsuario, String user, String pass, String nUsuario, Double saldoCuenta, Boolean loggedIn,
+			String uDepartamento, String uMotivo, List<Reserva> reserva) {
+		super();
+		this.cUsuario = cUsuario;
+		this.aUsuario = aUsuario;
+		this.aApellido = aApellido;
+		this.fNacimiento = fNacimiento;
+		this.resUsuario = resUsuario;
+		this.estadoUsuario = estadoUsuario;
+		this.user = user;
+		this.pass = pass;
+		this.nUsuario = nUsuario;
+		this.saldoCuenta = saldoCuenta;
+		this.loggedIn = loggedIn;
+		this.uDepartamento = uDepartamento;
+		this.uMotivo = uMotivo;
+		this.reserva = reserva;
+	}
 
 	@Column(name = "direccion_de_residencia")
 	private String resUsuario;
@@ -70,28 +102,6 @@ public class Usuario {
 		super();
 	}
 
-	public Usuario(Integer cUsuario, String aUsuario, String aApellido, String fNacimiento, String resUsuario,
-			Boolean estadoUsuario, String user, String pass, String nUsuario, Double saldoCuenta, Boolean loggedIn,
-			String uDepartamento, List<Reserva> reserva, String uMotivo) {
-		super();
-		this.cUsuario = cUsuario;
-		this.aUsuario = aUsuario;
-		this.aApellido = aApellido;
-		this.fNacimiento = fNacimiento;
-		this.resUsuario = resUsuario;
-		this.estadoUsuario = estadoUsuario;
-		this.user = user;
-		this.pass = pass;
-		this.nUsuario = nUsuario;
-		this.saldoCuenta = saldoCuenta;
-		this.loggedIn = loggedIn;
-		this.uDepartamento = uDepartamento;
-		this.reserva = reserva;
-		this.uMotivo = uMotivo;
-	}
-	
-	
-
 	public String getuMotivo() {
 		return uMotivo;
 	}
@@ -122,14 +132,6 @@ public class Usuario {
 
 	public void setaApellido(String aApellido) {
 		this.aApellido = aApellido;
-	}
-
-	public String getfNacimiento() {
-		return fNacimiento;
-	}
-
-	public void setfNacimiento(String fNacimiento) {
-		this.fNacimiento = fNacimiento;
 	}
 
 	public String getResUsuario() {

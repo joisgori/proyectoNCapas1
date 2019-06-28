@@ -46,7 +46,7 @@ public class Movie {
 	private Genero genero;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_idiomas")
+	@JoinColumn(name = "id_idioma")
 	private Idiomas idiomas;
 	
 	@ManyToOne(fetch = FetchType.EAGER)

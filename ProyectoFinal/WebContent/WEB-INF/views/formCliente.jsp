@@ -23,7 +23,7 @@
 				<form:input class="inputs" type="text" id="aApellido" path="aApellido" placeholder="Apellido Usuario" /> <br> 
 				
 				<label><b>Fecha de Nacimiento:</b></label> <br>
-				<form:input class="inputs" type="date" id="fNacimiento" path="fNacimiento" placeholder="Fecha de nacimiento" /> <br>
+				<form:input class="inputs" type="text" id="fNacimiento" path="fNacimiento" placeholder="Fecha de nacimiento(formato yyyy/MM/dd)" /> <br>
 
 				<label><b>Dirección de Residencia:</b></label> <br>
 				<form:input class="inputs" type="text" id="resUsuario" path="resUsuario" placeholder="Residencial" /> <br>
@@ -36,18 +36,23 @@
 				<form:input class="inputs" type="text" id="user" path="user" placeholder="User" /> <br>
 			
 				<label><b>Contraseña: </b></label> <br>
-				<form:input class="inputs" type="text" id="pass" path="pass" placeholder="Password" /> <br>
+				<form:input class="inputs" type="password" id="pass" path="pass" placeholder="Password" /> <br>
 			
 				<label><b>Tipo Usuario: </b></label> <br>
 				<form:input class="inputs" type="text" id="nUsuario" path="nUsuario" placeholder="Administrador/Cliente" /> <br>
 			
 				<label><b>Saldo: </b></label> <br>
-				<form:input class="inputs" type="number" id="saldoCuenta" path="saldoCuenta" placeholder="Saldo" /> <br>
+				<form:input class="inputs" type="number" step="any" id="saldoCuenta" path="saldoCuenta" placeholder="Saldo" /> <br>
 			
 				<label><b>Departamento: </b></label> <br>
 				<form:input class="inputs" type="text" id="uDepartamento" path="uDepartamento" placeholder="Departamento" /> <br>
 				
-				<input id="save" class="myButton" type="submit" value="Guardar la sucursal" /> <br>
+				<form:input class="inputs" type="hidden" path="uMotivo" value=" "/>
+				
+				<form:input class="inputs" type="hidden" path="loggedIn" value="false"/>
+				
+				
+				<input id="save" class="myButton" type="submit" value="Guardar la sucursal"/> <br>
 		
 	</form:form>
 
