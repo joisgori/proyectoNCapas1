@@ -24,7 +24,7 @@ public class UsuarioServiceImp implements UsuarioService{
 		return usuarioRepository.findAll();
 	}
 	
-	//implemento los mÃ©todos de servicio y mando a llamar de los repos
+	//implemento los métodos de servicio y mando a llamar de los repos
 	@Transactional
 	public Usuario save(Usuario usuario) {
 		return usuarioRepository.save(usuario);

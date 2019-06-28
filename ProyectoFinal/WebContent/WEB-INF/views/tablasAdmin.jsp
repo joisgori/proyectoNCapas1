@@ -54,7 +54,7 @@
 			<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
 				<td> ${DatosPelicula.cMovie} </td>
 				<td> ${DatosPelicula.pName} </td>
-				<td><img src="${DatosPelicula.pImage}" style="width:300px;height:300px"/></td>
+				<td><img src="resources/imagenes/${DatosPelicula.pImage}.png" style="width:300px;height:300px"/></td>
 				<td> ${DatosPelicula.pDuration} </td>
 				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimPeli?id_pelicula=${DatosPelicula.cMovie}'"
 				> Eliminar Película</button> </td>
