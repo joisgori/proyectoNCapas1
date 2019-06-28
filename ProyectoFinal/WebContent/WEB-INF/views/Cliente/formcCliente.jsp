@@ -12,7 +12,7 @@
 
 <h1> Ingreso Usuario - Administrador</h1>
 
-<form:form id="form2" method="post" modelAttribute="usuario" action="${pageContext.request.contextPath}/guardarUsuario">
+<form:form id="form10" method="post" modelAttribute="usuario" action="${pageContext.request.contextPath}/guardarUsuario">
 				
 				<form:input type="hidden" id="idUsuario" path="cUsuario"/> <br>
 				
