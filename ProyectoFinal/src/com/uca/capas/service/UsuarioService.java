@@ -18,5 +18,8 @@ public interface UsuarioService {
 	public void delete(Usuario usuario);
 	
 	public Usuario save(Usuario usuario);
+	
+	public int updateUser(Boolean bool, Integer id);
+
 
 }
