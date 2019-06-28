@@ -3,6 +3,7 @@ package com.uca.capas.repositories;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -21,5 +22,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	public List<Usuario> findAll();
 	
 	public Usuario findByUserAndPass(String user, String pass);
+	
+	@Modifying(clearAutomatically = true)
+	@Query (value = "update usuario set is_logged=:is_logged where id_usuario=:id_usuario", nativeQuery = true)
+	public int updateUser(@Param("is_logged") Boolean is_logged, @Param("id_usuario") Integer id_usuario);
 
 }
