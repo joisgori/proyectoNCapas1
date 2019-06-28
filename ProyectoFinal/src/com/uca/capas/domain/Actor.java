@@ -20,7 +20,7 @@ import javax.persistence.Table;
 public class Actor {
 	
 	@Id
-	@GeneratedValue(generator="actor_id_actor_seq",strategy=GenerationType.AUTO)
+	@GeneratedValue(generator="actores_id_actores_seq",strategy=GenerationType.AUTO)
 	@SequenceGenerator(name="actor_id_actor_seq",sequenceName="public.actor_id_actor_seq",allocationSize = 1)
 	@Column(name="id_actores")
 	private Integer cActores;

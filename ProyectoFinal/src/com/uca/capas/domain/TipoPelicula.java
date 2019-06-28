@@ -21,8 +21,8 @@ import javax.persistence.Table;
 public class TipoPelicula {
 	
 	@Id
-	@GeneratedValue(generator="tipopelicula_id_tipopelicula_seq",strategy=GenerationType.AUTO)
-	@SequenceGenerator(name="tipopelicula_id_tipopelicula_seq",sequenceName="public.tipopelicula_id_tipopelicula_seq",allocationSize = 1)
+	@GeneratedValue(generator="tipopelicula_id_tipopeli_seq",strategy=GenerationType.AUTO)
+	@SequenceGenerator(name="tipopelicula_id_tipopeli_seq",sequenceName="public.tipopelicula_id_tipopeli_seq	",allocationSize = 1)
 	@Column(name="id_tipopeli")
 	private Integer cTipoP;
 	

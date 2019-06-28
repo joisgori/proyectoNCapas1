@@ -15,14 +15,14 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@Table(schema="public" , name="idioma")
+@Table(schema="public" , name="idiomas")
 
 
 public class Idiomas {
 	
 	@Id
-	@GeneratedValue(generator="idioma_id_idioma_seq",strategy=GenerationType.AUTO)
-	@SequenceGenerator(name="idioma_id_idioma_seq",sequenceName="public.idioma_id_idioma_seq",allocationSize = 1)
+	@GeneratedValue(generator="idiomas_id_idioma_seq",strategy=GenerationType.AUTO)
+	@SequenceGenerator(name="idiomas_id_idioma_seq",sequenceName="public.idiomas_id_idioma_seq", allocationSize = 1)
 	@Column(name="id_idioma")
 	private Integer cIdioma;
 	
