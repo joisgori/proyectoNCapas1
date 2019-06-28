@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<!-- *************** ACÁ, ESTO SE IMPORTA *************** -->
+<!-- *************** ACÃ, ESTO SE IMPORTA *************** -->
 <!DOCTYPE html>
 <html>
 <head>
@@ -54,7 +54,7 @@
 						<div class="modal-dialog">
 							<div class="modal-content">
 								<div class="modal-header">
-									<h4 class="modal-title">Comentario Inactivaci�n</h4>
+									<h4 class="modal-title">Comentario Inactivación</h4>
 								</div>
 								<div class="modal-body">
 									<input/>
@@ -72,102 +72,142 @@
 
 	</table>
 	<br>
-	<h2>Tabla de películas:</h2>
+	<h2>Tabla de peliculas:</h2>
 
-	<label>Agregar nuevo película</label>
+	<label>Agregar nuevo pelicula</label>
 	<button
 		onclick="location.href='${pageContext.request.contextPath}/insertPeli'">Nueva
-		película</button>
+		pelicula</button>
 	<br>
 
 	<table>
 		<tr>
-			<th>ID película</th>
-			<th>Nombre de película</th>
-			<th>Imagen de película</th>
-			<th>Duración</th>
-			<!-- Creo que necesitaré hacer un DTO -->
+			<th>ID pelicula</th>
+			<th>Nombre de pelicula</th>
+			<th>Imagen de pelicula</th>
+			<th>Duracion</th>
 		</tr>
-		<c:forEach items="${DatosPelicula}" var="DatosPelicula">
-
-			<tr>
-				<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
-				<td>${DatosPelicula.cMovie}</td>
-				<td>${DatosPelicula.pName}</td>
-				<td><img src="${DatosPelicula.pImage}"
-					style="width: 300px; height: 300px" /></td>
-				<td>${DatosPelicula.pDuration}</td>
-				<td>
-					<button
-						onClick="location.href='${pageContext.request.contextPath}/ElimPeli?id_pelicula=${DatosPelicula.cMovie}'">
-						Eliminar Película</button>
-				</td>
-				<td>
-					<button
-						onclick="location.href='${pageContext.request.contextPath}/EditarPeli?id_pelicula=${DatosPelicula.cMovie}'">
-						Editar Película</button>
-				</td>
-
-			<tr> 
+		<c:forEach items="${DatosPelicula}" var="DatosPelicula"> 
 			<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
+			<tr>
 				<td> ${DatosPelicula.cMovie} </td>
 				<td> ${DatosPelicula.pName} </td>
 				<td><img src="resources/imagenes/${DatosPelicula.pImage}.png" style="width:300px;height:300px"/></td>
 				<td> ${DatosPelicula.pDuration} </td>
 				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimPeli?id_pelicula=${DatosPelicula.cMovie}'"
-				> Eliminar Película</button> </td>
+				> Eliminar PelÃ­cula</button> </td>
 				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarPeli?id_pelicula=${DatosPelicula.cMovie}'" 
-				> Editar Película</button> </td>
-
+				> Editar PelÃ­cula</button> </td>
 			</tr>
 		</c:forEach>
 	</table>
 	
-	<!-- actores, g�nero, horario, idioma -->
+	<!-- actores, género, horario, idioma -->
 	
+	</table>
 	<br>
 	<h2>Tabla de actores:</h2>
 
 	<label>Agregar nuevo actor</label>
 	<button
-		onclick="location.href='${pageContext.request.contextPath}/insertActor'">Nuevo actor</button>
+		onclick="location.href='${pageContext.request.contextPath}/insertActo'">Nuevo actor</button>
 	<br>
 
 	<table>
 		<tr>
-			<th>ID Actor</th>
-			<th>Nombre Actor</th>
-			<th>Apellido actor</th>
+			<th>ID actor</th>
+			<th>Nombre de actor</th>
+			<th>Apellido de actor</th>
 		</tr>
-		<c:forEach items="${DatosActor}" var="DatosActor">
-
+		<c:forEach items="${DatosActor}" var="DatosActor"> 
 			<tr>
-				<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
-				<td>${DatosActor.cActores}</td>
-				<td>${DatosActor.aName}</td>
-				<td>${DatosPelicula.aApellido}</td>
-				<td>
-					<button
-						onClick="location.href='${pageContext.request.contextPath}/ElimActor?id_actor=${DatosActor.cActores}'">
-						Eliminar Actor</button>
-				</td>
-				<td>
-					<button
-						onclick="location.href='${pageContext.request.contextPath}/EditarActor?id_actor=${DatosPelicula.cActores}'">
-						Editar actor</button>
-				</td>
+				<td> ${DatosActor.cActores} </td>
+				<td> ${DatosActor.aName} </td>
+				<td> ${DatosPelicula.aApellido}</td>
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimActo?id_actores=${DatosActor.cActores}'"
+				> Eliminar actor</button> </td>
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarActo?id_actores=${DatosActor.cActores}'" 
+				> Editar actor</button> </td>
+			</tr>
+		</c:forEach>
+	</table>
+	
+	<!-- género, horario, idioma -->
+		</table>
+	<br>
+	<h2>Tabla de genero:</h2>
 
-			<tr> 
-			<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
-				<td> ${DatosPelicula.cMovie} </td>
-				<td> ${DatosPelicula.pName} </td>
-				<td><img src="resources/imagenes/${DatosPelicula.pImage}.png" style="width:300px;height:300px"/></td>
-				<td> ${DatosPelicula.pDuration} </td>
-				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimPeli?id_pelicula=${DatosPelicula.cMovie}'"
-				> Eliminar Película</button> </td>
-				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarPeli?id_pelicula=${DatosPelicula.cMovie}'" 
-				> Editar Película</button> </td>
+	<label>Agregar nuevo genero</label>
+	<button
+		onclick="location.href='${pageContext.request.contextPath}/insertGen'">Nuevo genero</button>
+	<br>
 
+	<table>
+		<tr>
+			<th>ID genero</th>
+			<th>Genero pelicula</th>
+		</tr>
+		<c:forEach items="${DatosGenero}" var="DatosGenero">
+			<tr>
+				<td> ${DatosGenero.cGenero} </td>
+				<td> ${DatosGenero.aGPeli} </td>
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimGen?id_genero=${Datos.cGenero}'"
+				> Eliminar Genero</button> </td>
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarGen?id_genero=${DatosGenero.cGenero}'" 
+				> Editar Genero</button> </td>
+			</tr>
+		</c:forEach>
+	</table>
+	
+	<!-- horario, idioma -->
+	
+		<br>
+	<h2>Tabla de horario:</h2>
+
+	<label>Agregar nuevo horario</label>
+	<button
+		onclick="location.href='${pageContext.request.contextPath}/insertHor'">Nuevo Horario</button>
+	<br>
+
+	<table>
+		<tr>
+			<th>ID horario</th>
+			<th>Horario pelicula</th>
+		</tr>
+		<c:forEach items="${DatosHorario}" var="DatosHorario"> 
+			<tr>
+				<td> ${DatosHorario.cHorario} </td>
+				<td> ${DatosHorario.aHpeli} </td>
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimHor?id_horario=${DatosHorario.cHorario}'"
+				> Eliminar horario</button> </td>
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarHor?id_horario=${DatosHorario.aHpeli}'" 
+				> Editar horario</button> </td>
+			</tr>
+		</c:forEach>
+	</table>
+	
+	<!-- idioma -->
+	<br>
+	<h2>Tabla de idioma:</h2>
+
+	<label>Agregar nuevo idioma</label>
+	<button
+		onclick="location.href='${pageContext.request.contextPath}/insertIdiom'">Nuevo idioma</button>
+	<br>
+
+	<table>
+		<tr>
+			<th>ID idioma</th>
+			<th>Idioma pelicula</th>
+		</tr>
+		<c:forEach items="${DatosIdioma}" var="DatosIdioma"> 
+			<tr>
+				<td> ${DatosIdioma.cIdioma} </td>
+				<td> ${DatosIdioma.aIpeli} </td>
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimIdio?id_idioma=${DatosIdioma.cIdioma}'"
+				> Eliminar Idioma</button> </td>
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarIdio?id_idioma=${DatosIdioma.cIdioma}'" 
+				> Editar Idioma</button> </td>
 			</tr>
 		</c:forEach>
 	</table>
