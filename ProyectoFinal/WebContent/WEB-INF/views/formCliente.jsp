@@ -28,8 +28,10 @@
 				<label><b>Dirección de Residencia:</b></label> <br>
 				<form:input class="inputs" type="text" id="resUsuario" path="resUsuario" placeholder="Residencial" /> <br>
 					
-				<form:radiobutton name="status" path="estadoUsuario" value="true"/>
-	
+				<label>Estado Usuario: </label><br>		
+				<form:radiobutton name="status" path="estadoUsuario" value="true"/><label>Activo</label><br>
+				<form:radiobutton name="status" path="estadoUsuario" value="false"/><label>Inactivo</label><br>
+				
 				<label><b>Usuario: </b></label> <br>
 				<form:input class="inputs" type="text" id="user" path="user" placeholder="User" /> <br>
 			
