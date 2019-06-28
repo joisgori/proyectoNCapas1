@@ -8,6 +8,8 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
@@ -31,48 +33,58 @@ public class Movie {
 	@Column(name="duracion")
 	private String pDuration;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
-	private List<Actor> actor;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_actores")
+	private Actor actores;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
-	private List<TipoPelicula> tipopelicula;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_tipopeli")
+	private TipoPelicula tipopelicula;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
-	private List<Genero> genero;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_genero")
+	private Genero genero;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
-	private List<Idiomas> idiomas;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_idiomas")
+	private Idiomas idiomas;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
-	private List<Horario> horario;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_horario")
+	private Horario horario;
 	
-	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
-	private List<SxP> salaxpelicula;
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_sxp")
+	private SxP sxp;
 		
 	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
 	private List<Reserva> reserva;
+		
 	
 	
-	public Movie(Integer cMovie, String pName, String pImage, String pDuration) {
+	
+	public Movie(Integer cMovie, String pName, String pImage, String pDuration, Actor actores,
+			TipoPelicula tipopelicula, Genero genero, Idiomas idiomas, Horario horario, SxP sxp,
+			List<Reserva> reserva) {
 		super();
 		this.cMovie = cMovie;
 		this.pName = pName;
 		this.pImage = pImage;
 		this.pDuration = pDuration;
+		this.actores = actores;
+		this.tipopelicula = tipopelicula;
+		this.genero = genero;
+		this.idiomas = idiomas;
+		this.horario = horario;
+		this.sxp = sxp;
+		this.reserva = reserva;
 	}
 	
-	
-	
-	public Movie() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-
-
 	public Integer getcMovie() {
 		return cMovie;
 	}
+
+
 
 
 
@@ -84,9 +96,13 @@ public class Movie {
 
 
 
+
+
 	public String getpName() {
 		return pName;
 	}
+
+
 
 
 
@@ -98,9 +114,13 @@ public class Movie {
 
 
 
+
+
 	public String getpImage() {
 		return pImage;
 	}
+
+
 
 
 
@@ -112,6 +132,8 @@ public class Movie {
 
 
 
+
+
 	public String getpDuration() {
 		return pDuration;
 	}
@@ -119,8 +141,146 @@ public class Movie {
 
 
 
+
+
 	public void setpDuration(String pDuration) {
 		this.pDuration = pDuration;
+	}
+
+
+
+
+
+
+	public Actor getActores() {
+		return actores;
+	}
+
+
+
+
+
+
+	public void setActores(Actor actores) {
+		this.actores = actores;
+	}
+
+
+
+
+
+
+	public TipoPelicula getTipopelicula() {
+		return tipopelicula;
+	}
+
+
+
+
+
+
+	public void setTipopelicula(TipoPelicula tipopelicula) {
+		this.tipopelicula = tipopelicula;
+	}
+
+
+
+
+
+
+	public Genero getGenero() {
+		return genero;
+	}
+
+
+
+
+
+
+	public void setGenero(Genero genero) {
+		this.genero = genero;
+	}
+
+
+
+
+
+
+	public Idiomas getIdiomas() {
+		return idiomas;
+	}
+
+
+
+
+
+
+	public void setIdiomas(Idiomas idiomas) {
+		this.idiomas = idiomas;
+	}
+
+
+
+
+
+
+	public Horario getHorario() {
+		return horario;
+	}
+
+
+
+
+
+
+	public void setHorario(Horario horario) {
+		this.horario = horario;
+	}
+
+
+
+
+
+
+	public SxP getSxp() {
+		return sxp;
+	}
+
+
+
+
+
+
+	public void setSxp(SxP sxp) {
+		this.sxp = sxp;
+	}
+
+
+
+
+
+
+	public List<Reserva> getReserva() {
+		return reserva;
+	}
+
+
+
+
+
+
+	public void setReserva(List<Reserva> reserva) {
+		this.reserva = reserva;
+	}
+
+
+
+
+
+
+	public Movie() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 }
