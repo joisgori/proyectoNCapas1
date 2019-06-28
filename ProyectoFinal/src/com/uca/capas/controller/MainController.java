@@ -1,5 +1,7 @@
 package com.uca.capas.controller;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,15 +10,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.capas.domain.Usuario;
-import com.uca.capas.repositories.UsuarioRepository;
 import com.uca.capas.service.UsuarioService;
 
 @Controller
 public class MainController {
-	
-	@Autowired
-	UsuarioRepository usuarioRepository;
-	
+
 	@Autowired
 	UsuarioService usuarioService;
 
@@ -25,18 +23,15 @@ public class MainController {
 		ModelAndView mav = new ModelAndView();
 		mav.setViewName("main");
 		return mav;
-	}	
-	
+	}
+
 	@RequestMapping(value= "/verifyLogin", method=RequestMethod.POST)
 	public ModelAndView verifyUser(@RequestParam (name="username") String username, @RequestParam(name="pass") String pass) {
 		ModelAndView mav = new ModelAndView();
 		
-		Usuario user = null;
-		
-		user = usuarioRepository.findByUserAndPass(username, pass);
+		Usuario user = usuarioService.login(username, pass);
 		
 		System.out.println("QUE IMPRIMO " + user.getnUsuario());
-		
 		
 		if(user != null) {
 			if(user.getnUsuario().equals("Cliente")) {
@@ -55,14 +50,11 @@ public class MainController {
 					System.out.println("Usuario Inactivo");
 				}	
 			}
-			else if(user.getnUsuario().equals("Administrador")){
-				mav.setViewName("formPelis");
-			}else {
-				System.out.println("Algo");
-			}
-		}
-		
+			
+			if(user.getnUsuario().equals("Administrador")){
+				mav.setViewName("redirect:/todos");
+			} 
+		}	
 		return mav;
-	}	
-	
+	}
 }
