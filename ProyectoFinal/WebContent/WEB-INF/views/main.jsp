@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,6 +52,12 @@
         </ul>
       </div>
     </form>
+    <c:if test="${resultado eq 1}">
+    	<h2>USUARIO INACTIVO!!!</h2>
+    </c:if>
+    <c:if test="${resultado eq 0}">
+    	<h2>YA ESTAS LOGGEADO!!!</h2>
+    </c:if>
   </div>
 </div>
 
