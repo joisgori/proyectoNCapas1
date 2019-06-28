@@ -25,4 +25,10 @@ public class TPServiceImp implements TPService{
 		return null;
 	}
 
+	@Override
+	public void delete(TipoPelicula tipopelicula) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }

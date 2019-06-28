@@ -9,4 +9,6 @@ public interface TPService {
 	public List<TipoPelicula> findAll();
 
 	public TipoPelicula findOne(Integer id_tipopeli);
+
+	public void delete(TipoPelicula tipopelicula);
 }

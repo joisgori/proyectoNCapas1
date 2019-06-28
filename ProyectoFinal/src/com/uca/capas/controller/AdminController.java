@@ -122,18 +122,19 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping("/ElimIdio")//Pongo la ruta que llamará este mappeo
-	public ModelAndView elimninarIdio(@RequestParam ("id_idioma") Integer id_idioma) { //Recibo el id del genero a eliminar
+	@RequestMapping("/ElimIdioma")//Pongo la ruta que llamará este mappeo
+	public ModelAndView elimninarIdioma(@RequestParam ("id_idioma") Integer id_idioma) { //Recibo el id del genero a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
-		Idiomas idioma = IdiomaService.findOne(id_idioma);
+		Idiomas idioma = idiomaService.findOne(id_idioma);
 		//mando la peli para eliminarlo xd
-		IdiomaService.delete(idioma);
+		idiomaService.delete(idioma);
 		//Hago un nuevo llamado de la lista completa de sucursales
-		mav.addObject("Datosidioma", IdiomaService.findAll());
+		mav.addObject("DatosIdioma", idiomaService.findAll());
 		mav.setViewName("redirect:/todos");
 		return mav;
 	}
+	
 	
 	@RequestMapping("/ElimHor")//Pongo la ruta que llamará este mappeo
 	public ModelAndView elimninarHora(@RequestParam ("id_horario") Integer id_horario) { //Recibo el id del genero a eliminar

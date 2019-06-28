@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h1> Ingreso Pelicula </h1>
+<h1> Ingreso Pelicula - Administrador</h1>
 
 <form:form id="form2" method="post" modelAttribute="pelicula" action="${pageContext.request.contextPath}/guardarPelicula">
 				

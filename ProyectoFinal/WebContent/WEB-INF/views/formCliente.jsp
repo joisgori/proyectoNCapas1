@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h1> Ingreso Usuario </h1>
+<h1> Ingreso Usuario - Administrador</h1>
 
 <form:form id="form2" method="post" modelAttribute="usuario" action="${pageContext.request.contextPath}/guardarUsuario">
 				
