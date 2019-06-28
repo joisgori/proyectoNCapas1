@@ -21,6 +21,8 @@ public interface UsuarioService {
 	
 	public int updateUser(Boolean bool, Integer id);
 	
+	public int updateUserV2(Boolean bool, Integer id);
+	
 	public int inactivateUser(Boolean bool, String motivo, Integer id);
 
 	public Usuario login(String user,  String pass);

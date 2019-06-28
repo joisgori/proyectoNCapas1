@@ -59,4 +59,9 @@ public class UsuarioServiceImp implements UsuarioService{
 		return usuarioRepository.findByUser(nombre);
 	}
 
+	@Transactional
+	public int updateUserV2(Boolean bool, Integer id) {
+		return usuarioRepository.updateUserV2(bool, id);
+	}
+
 }
