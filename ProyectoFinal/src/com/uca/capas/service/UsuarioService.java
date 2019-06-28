@@ -20,7 +20,9 @@ public interface UsuarioService {
 	public Usuario save(Usuario usuario);
 	
 	public int updateUser(Boolean bool, Integer id);
+	
+	public int inactivateUser(Boolean bool, String motivo, Integer id);
 
-	public Usuario login(String user, String pass);
+	public Usuario login(String user,  String pass);
 
 }
