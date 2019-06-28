@@ -26,24 +26,11 @@ public class TipoPelicula {
 	@Column(name="id_tipopeli")
 	private Integer cTipoP;
 	
-	@Column(name="tipo_peli")
+	@Column(name="tipo_pelicula")
 	private String aTpeli;
 	
 	@OneToMany(mappedBy = "tipopelicula", fetch = FetchType.LAZY)
 	private List<Movie> pelicula;
-
-	public TipoPelicula(Integer cTipoP, String aIpeli) {
-		super();
-		this.cTipoP = cTipoP;
-		this.aTpeli = aIpeli;
-	}
-	
-
-	public TipoPelicula() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
 
 	public Integer getcTipoP() {
 		return cTipoP;
@@ -53,13 +40,32 @@ public class TipoPelicula {
 		this.cTipoP = cTipoP;
 	}
 
-	public String getaIpeli() {
+	public String getaTpeli() {
 		return aTpeli;
 	}
 
-	public void setaIpeli(String aIpeli) {
-		this.aTpeli = aIpeli;
+	public void setaTpeli(String aTpeli) {
+		this.aTpeli = aTpeli;
 	}
 
+	public List<Movie> getPelicula() {
+		return pelicula;
+	}
+
+	public void setPelicula(List<Movie> pelicula) {
+		this.pelicula = pelicula;
+	}
+
+	public TipoPelicula(Integer cTipoP, String aTpeli, List<Movie> pelicula) {
+		super();
+		this.cTipoP = cTipoP;
+		this.aTpeli = aTpeli;
+		this.pelicula = pelicula;
+	}
+
+	public TipoPelicula() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
 }
