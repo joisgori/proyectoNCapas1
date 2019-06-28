@@ -279,7 +279,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/guardarHorario", method= RequestMethod.POST)
-	public ModelAndView saveGenero(@ModelAttribute ("horario") Horario horario) {
+	public ModelAndView saveHorario(@ModelAttribute ("horario") Horario horario) {
 			ModelAndView mav = new ModelAndView();
 			List<Horario> ho = null;
 			horarioService.save(horario);
@@ -291,7 +291,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/guardarIdioma", method= RequestMethod.POST)
-	public ModelAndView saveGenero(@ModelAttribute ("idioma") Idiomas idioma) {
+	public ModelAndView saveIdioma(@ModelAttribute ("idioma") Idiomas idioma) {
 			ModelAndView mav = new ModelAndView();
 			List<Idiomas> idi = null;
 			idiomaService.save(idioma);
@@ -303,7 +303,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/guardarPelicula", method= RequestMethod.POST)
-	public ModelAndView saveSucursal(@ModelAttribute ("pelicula") Movie movie) {
+	public ModelAndView savePelicula(@ModelAttribute ("pelicula") Movie movie) {
 		ModelAndView mav = new ModelAndView();
 		List<Movie> mov = null;
 			movieService.save(movie);
@@ -315,7 +315,7 @@ public class AdminController {
 	}
 	
 	@RequestMapping(value = "/guardarTP", method= RequestMethod.POST)
-	public ModelAndView saveSucursal(@ModelAttribute ("tipopelicula") TipoPelicula tipopelicula) {
+	public ModelAndView saveTP(@ModelAttribute ("tipopelicula") TipoPelicula tipopelicula) {
 		ModelAndView mav = new ModelAndView();
 		List<TipoPelicula> txp = null;
 			tpService.save(tipopelicula);

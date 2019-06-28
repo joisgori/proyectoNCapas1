@@ -123,7 +123,7 @@
 			<tr>
 				<td> ${DatosActor.cActores} </td>
 				<td> ${DatosActor.aName} </td>
-				<td> ${DatosPelicula.aApellido}</td>
+				<td> ${DatosActor.aApellido}</td>
 				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimActo?cActores=${DatosActor.cActores}'"
 				> Eliminar actor</button> </td>
 				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarActo?cActores=${DatosActor.cActores}'" 
@@ -226,7 +226,7 @@
 			<th>ID tipo pelicula</th>
 			<th>tipo pelicula</th>
 		</tr>
-		<c:forEach items="${DatosTipoPeli}" var="DatosTipoPelo"> 
+		<c:forEach items="${DatosTipoPeli}" var="DatosTipoPeli"> 
 			<tr>
 				<td> ${DatosTipoPeli.cTipoP} </td>
 				<td> ${DatosTipoPeli.aTpeli} </td>
