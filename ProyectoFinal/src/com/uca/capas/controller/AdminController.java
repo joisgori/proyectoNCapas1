@@ -29,7 +29,7 @@ public class AdminController {
 		List<Movie> mov = null;
 		try {
 			//user = usuarioRepository.findByNUsuario("Cliente");
-			user = usuarioRepository.findAll();
+			user = usuarioService.findAll();
 			//System.out.println("SI hace algo" + user.toString());
 			mov = movieService.findAll();
 			System.out.println("si hace algo" + mov);
