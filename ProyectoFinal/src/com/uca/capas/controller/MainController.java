@@ -1,5 +1,7 @@
 package com.uca.capas.controller;
 
+import java.util.List;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,6 +39,11 @@ public class MainController {
 		
 		Usuario user = usuarioService.login(username, pass);
 		
+		List<Movie> movie = movieService.findAll();
+		
+		//List<Movie> movie = movieService.findByEstado(true)
+		
+		
 		System.out.println("QUE IMPRIMO " + user.getnUsuario());
 		
 		if(user != null) {
@@ -44,7 +51,9 @@ public class MainController {
 				if(user.getEstadoUsuario().equals(true)) {
 					if(user.getLoggedIn().equals(false)) {
 						usuarioService.updateUser(true, user.getcUsuario());
-						mav.setViewName("redirect:/todos");
+						mav.addObject("MisDatos", user);
+						mav.addObject("DatosPelicula", movie);
+						mav.setViewName("Cliente/PaginaInicio");
 					} else {
 						mav.addObject("resultado", 0);
 						mav.setViewName("main");

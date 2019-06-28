@@ -30,5 +30,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	@Modifying(clearAutomatically = true)
 	@Query (value ="update usuario set estado=:estado, motivo=:motivo where id_usuario=:id_usuario", nativeQuery = true)
 	public int inactivateUser(@Param("estado") Boolean estado, @Param("motivo") String motivo, @Param("id_usuario") Integer id_usuario);
+	
+	public Usuario findByUser(String nombre);
 
 }

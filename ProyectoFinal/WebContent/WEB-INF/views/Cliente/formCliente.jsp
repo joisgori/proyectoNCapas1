@@ -12,7 +12,7 @@
 
 <h1> Ingreso Usuario - Cliente</h1>
 
-<form:form id="form2" method="post" modelAttribute="usuario" action="${pageContext.request.contextPath}/guardarUsuario">
+<form:form id="form2" method="post" modelAttribute="usuarioNue" action="${pageContext.request.contextPath}/guardarme">
 				
 				<form:input type="hidden" id="idUsuario" path="cUsuario"/> <br>
 				
@@ -51,7 +51,7 @@
 				<form:input class="inputs" type="hidden" path="loggedIn" value="true"/>
 				
 				
-				<input id="save" class="myButton" type="submit" value="Guardar la sucursal"/> <br>
+				<input id="save" class="myButton" type="submit" value="Guardar mi info"/> <br>
 		
 	</form:form>
 

@@ -188,7 +188,7 @@ public class AdminController {
 	public ModelAndView insertC() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("usuario", new Usuario()); //ojo acá
-		mav.setViewName("formCliente");
+		mav.setViewName("formcCliente");
 		return mav;
 	}
 
@@ -336,7 +336,7 @@ public class AdminController {
 		
 		Usuario us = usuarioService.findByCUsuario(cUsuario);
 		mav.addObject("usuario", us);
-		mav.setViewName("formCliente");
+		mav.setViewName("formcCliente");
 		return mav;
 	}
 	
@@ -405,5 +405,30 @@ public class AdminController {
 		mav.setViewName("formIdioma");
 		return mav;
 	}
-
+	
+	//-----------------------ACÁ COMIIENZA LA LÓGICA PARA EL CLIENTE
+	
+	@RequestMapping("/guardarUsuarioNue")
+	public ModelAndView nuevoUsuario() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("usuarioNue", new Usuario()); //ojo acá
+		mav.setViewName("Cliente/formCliente");
+		return mav;
+	}
+	
+	@RequestMapping(value = "/guardarme", method= RequestMethod.POST)
+	public ModelAndView guardarme(@ModelAttribute ("usuarioNue") Usuario usuario) {
+		ModelAndView mav = new ModelAndView();
+		Usuario us = null;
+		List<Movie> catalogo = null;
+		usuarioService.save(usuario);
+		catalogo = movieService.findAll();
+		us = usuarioService.findByUser(usuario.getUser());
+		mav.addObject("MisDatos", us); //Para mapper mis datos, log user y dinero xdxd
+		mav.addObject("DatosPelicula", catalogo);
+		mav.setViewName("Cliente/PaginaInicio"); //Necesito la página principal con la peli
+		return mav;
+		}
+	
+	
 }

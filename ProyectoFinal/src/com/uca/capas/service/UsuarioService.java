@@ -24,5 +24,7 @@ public interface UsuarioService {
 	public int inactivateUser(Boolean bool, String motivo, Integer id);
 
 	public Usuario login(String user,  String pass);
+	
+	public Usuario findByUser(String nombre);
 
 }

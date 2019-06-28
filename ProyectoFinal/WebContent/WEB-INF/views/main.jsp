@@ -50,7 +50,8 @@
             <input class="btn btn--form" type="submit" value="LOGIN" />
           </li>
           <li>
-            <a class="signup__link" href="file:///C:/Users/kevin/OneDrive/Escritorio/views/Log%20up/logoup.html">logup</a>
+            <button type="button" onclick ="location.href='${pageContext.request.contextPath}/guardarUsuarioNue'">Crear
+            nueva cuenta</button></td>
           </li>
         </ul>
       </div>

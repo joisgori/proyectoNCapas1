@@ -54,4 +54,9 @@ public class UsuarioServiceImp implements UsuarioService{
 		return usuarioRepository.inactivateUser(bool, motivo, id);
 	}
 
+	@Override
+	public Usuario findByUser(String nombre) {
+		return usuarioRepository.findByUser(nombre);
+	}
+
 }
