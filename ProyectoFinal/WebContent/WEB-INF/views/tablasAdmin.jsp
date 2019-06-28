@@ -43,7 +43,7 @@
 				</td>
 				<td>
 					<button
-						onclick="location.href='${pageContext.request.contextPath}/EditarUsu?id_usuario=${DatosCliente.cUsuario}'">
+						onclick="location.href='${pageContext.request.contextPath}/EditarUsu?cUsuario=${DatosCliente.cUsuario}'">
 						Editar Cliente</button>
 				</td>
 
@@ -94,9 +94,9 @@
 				<td> ${DatosPelicula.pName} </td>
 				<td><img src="resources/imagenes/${DatosPelicula.pImage}.png" style="width:300px;height:300px"/></td>
 				<td> ${DatosPelicula.pDuration} </td>
-				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimPeli?id_pelicula=${DatosPelicula.cMovie}'"
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimPeli?cMovie=${DatosPelicula.cMovie}'"
 				> Eliminar PelÃ­cula</button> </td>
-				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarPeli?id_pelicula=${DatosPelicula.cMovie}'" 
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarPeli?cMovie=${DatosPelicula.cMovie}'" 
 				> Editar PelÃ­cula</button> </td>
 			</tr>
 		</c:forEach>
@@ -124,9 +124,9 @@
 				<td> ${DatosActor.cActores} </td>
 				<td> ${DatosActor.aName} </td>
 				<td> ${DatosPelicula.aApellido}</td>
-				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimActo?id_actores=${DatosActor.cActores}'"
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimActo?cActores=${DatosActor.cActores}'"
 				> Eliminar actor</button> </td>
-				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarActo?id_actores=${DatosActor.cActores}'" 
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarActo?cActores=${DatosActor.cActores}'" 
 				> Editar actor</button> </td>
 			</tr>
 		</c:forEach>
@@ -150,10 +150,10 @@
 		<c:forEach items="${DatosGenero}" var="DatosGenero">
 			<tr>
 				<td> ${DatosGenero.cGenero} </td>
-				<td> ${DatosGenero.aGPeli} </td>
-				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimGen?id_genero=${Datos.cGenero}'"
+				<td> ${DatosGenero.aGpeli} </td>
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimGen?cGenero=${DatosGenero.cGenero}'"
 				> Eliminar Genero</button> </td>
-				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarGen?id_genero=${DatosGenero.cGenero}'" 
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarGen?cGenero=${DatosGenero.cGenero}'" 
 				> Editar Genero</button> </td>
 			</tr>
 		</c:forEach>
@@ -178,9 +178,9 @@
 			<tr>
 				<td> ${DatosHorario.cHorario} </td>
 				<td> ${DatosHorario.aHpeli} </td>
-				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimHor?id_horario=${DatosHorario.cHorario}'"
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimHor?cHorario=${DatosHorario.cHorario}'"
 				> Eliminar horario</button> </td>
-				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarHor?id_horario=${DatosHorario.aHpeli}'" 
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarHor?cHorario=${DatosHorario.cHorario}'" 
 				> Editar horario</button> </td>
 			</tr>
 		</c:forEach>
@@ -204,14 +204,39 @@
 			<tr>
 				<td> ${DatosIdioma.cIdioma} </td>
 				<td> ${DatosIdioma.aIpeli} </td>
-				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimIdio?id_idioma=${DatosIdioma.cIdioma}'"
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimIdio?cIdioma=${DatosIdioma.cIdioma}'"
 				> Eliminar Idioma</button> </td>
-				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarIdio?id_idioma=${DatosIdioma.cIdioma}'" 
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarIdio?cIdioma=${DatosIdioma.cIdioma}'" 
 				> Editar Idioma</button> </td>
 			</tr>
 		</c:forEach>
 	</table>
 	
+	<!-- tipo pelicula-->
+	<br>
+	<h2>Tabla de tipos de pelicula:</h2>
+
+	<label>Agregar nuevo tipo de pelicula</label>
+	<button
+		onclick="location.href='${pageContext.request.contextPath}/insertTipoPel'">Nuevo tipo de pelicula</button>
+	<br>
+
+	<table>
+		<tr>
+			<th>ID tipo pelicula</th>
+			<th>tipo pelicula</th>
+		</tr>
+		<c:forEach items="${DatosTipoPeli}" var="DatosTipoPelo"> 
+			<tr>
+				<td> ${DatosTipoPeli.cTipoP} </td>
+				<td> ${DatosTipoPeli.aTpeli} </td>
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimTipoPel?cTipoP=${DatosTipoPeli.cTipoP}'"
+				> Eliminar tipo peli</button> </td>
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarTipoPel?cTipoP=${DatosTiposPeli.cTipoP}'" 
+				> Editar tipo peli</button> </td>
+			</tr>
+		</c:forEach>
+	</table>
 	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

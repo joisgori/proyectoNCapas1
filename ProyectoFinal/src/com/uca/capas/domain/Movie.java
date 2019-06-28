@@ -60,9 +60,6 @@ public class Movie {
 	@OneToMany(mappedBy = "pelicula", fetch = FetchType.LAZY)
 	private List<Reserva> reserva;
 		
-	
-	
-	
 	public Movie(Integer cMovie, String pName, String pImage, String pDuration, Actor actores,
 			TipoPelicula tipopelicula, Genero genero, Idiomas idiomas, Horario horario, SxP sxp,
 			List<Reserva> reserva) {

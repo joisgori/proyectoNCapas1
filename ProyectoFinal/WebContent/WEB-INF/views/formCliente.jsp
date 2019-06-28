@@ -29,7 +29,7 @@
 				<form:input class="inputs" type="text" id="resUsuario" path="resUsuario" placeholder="Residencial" /> <br>
 				
 				<!-- estado -->		
-				<form:radiobutton name="status" type="hidden" path="estadoUsuario" value="true"/>
+				<form:input name="status" type="hidden" path="estadoUsuario" value="true"/>
 				
 				<label><b>Usuario: </b></label> <br>
 				<form:input class="inputs" type="text" id="user" path="user" placeholder="User" /> <br>

@@ -57,11 +57,15 @@ public class AdminController {
 		ModelAndView mav = new ModelAndView();
 		List<Usuario> user = null;
 		List<Movie> mov = null;
+		List<Genero> gen = null;
 		try {
 			//user = usuarioRepository.findByNUsuario("Cliente");
 			user = usuarioService.findAll();
 			//System.out.println("SI hace algo" + user.toString());
 			mov = movieService.findAll();
+			//FALTA MANDAR A LLAMAR EL RESTO DE FINDALL...
+			gen = generoService.findAll();
+			
 			System.out.println("si hace algo" + mov);
 		}catch (Exception e) {
 			e.printStackTrace();
@@ -69,6 +73,7 @@ public class AdminController {
 		
 		mav.addObject("DatosCliente", user);
 		mav.addObject("DatosPelicula", mov);
+		mav.addObject("DatosGenero", gen);
 		mav.setViewName("tablasAdmin");
 		
 		return mav;
@@ -89,7 +94,7 @@ public class AdminController {
 	}
 
 	@RequestMapping("/ElimPeli")//Pongo la ruta que llamará este mappeo
-	public ModelAndView elimninarPeli(@RequestParam ("id_pelicula") Integer id_pelicula) { //Recibo el id del usuario a eliminar
+	public ModelAndView elimninarPeli(@RequestParam ("cMovie") Integer id_pelicula) { //Recibo el id del usuario a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
 		Movie movie = movieService.findByCMovie(id_pelicula);
@@ -102,10 +107,10 @@ public class AdminController {
 	}
 	
 	@RequestMapping("/ElimGen")//Pongo la ruta que llamará este mappeo
-	public ModelAndView elimninarGene(@RequestParam ("id_genero") Integer id_genero) { //Recibo el id del genero a eliminar
+	public ModelAndView elimninarGene(@RequestParam ("cGenero") Integer cGenero) { //Recibo el id del genero a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
-		Genero genero = generoService.findOne(id_genero);
+		Genero genero = generoService.findOne(cGenero);
 		//mando la peli para eliminarlo xd
 		generoService.delete(genero);
 		//Hago un nuevo llamado de la lista completa de sucursales
@@ -114,8 +119,8 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping("/ElimTP")//Pongo la ruta que llamará este mappeo
-	public ModelAndView elimninarTP(@RequestParam ("id_tipopeli") Integer id_tipopeli) { //Recibo el id del genero a eliminar
+	@RequestMapping("/ElimTipoPel")//Pongo la ruta que llamará este mappeo
+	public ModelAndView elimninarTP(@RequestParam ("cTipoP") Integer id_tipopeli) { //Recibo el id del genero a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
 		TipoPelicula tipopelicula = tpService.findOne(id_tipopeli);
@@ -127,8 +132,8 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping("/ElimIdioma")//Pongo la ruta que llamará este mappeo
-	public ModelAndView elimninarIdioma(@RequestParam ("id_idioma") Integer id_idioma) { //Recibo el id del genero a eliminar
+	@RequestMapping("/ElimIdio")//Pongo la ruta que llamará este mappeo
+	public ModelAndView elimninarIdioma(@RequestParam ("cIdioma") Integer id_idioma) { //Recibo el id del genero a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
 		Idiomas idioma = idiomaService.findOne(id_idioma);
@@ -142,7 +147,7 @@ public class AdminController {
 	
 	
 	@RequestMapping("/ElimHor")//Pongo la ruta que llamará este mappeo
-	public ModelAndView elimninarHora(@RequestParam ("id_horario") Integer id_horario) { //Recibo el id del genero a eliminar
+	public ModelAndView elimninarHora(@RequestParam ("cHorario") Integer id_horario) { //Recibo el id del genero a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
 		Horario horario = horarioService.findOne(id_horario);
@@ -154,8 +159,8 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping("/ElimActor")//Pongo la ruta que llamará este mappeo
-	public ModelAndView elimninarActor(@RequestParam ("id_actor") Integer id_actor) { //Recibo el id del genero a eliminar
+	@RequestMapping("/ElimActo")//Pongo la ruta que llamará este mappeo
+	public ModelAndView elimninarActor(@RequestParam ("cActores") Integer id_actor) { //Recibo el id del genero a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
 		Actor actor = actorService.findOne(id_actor);
@@ -185,7 +190,7 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping("/insertGenero")
+	@RequestMapping("/insertGen")
 	public ModelAndView insertG() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("genero", new Genero()); //ojo acá
@@ -193,7 +198,7 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping("/insertActor")
+	@RequestMapping("/insertActo")
 	public ModelAndView insertA() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("actor", new Actor()); //ojo acá
@@ -201,7 +206,7 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping("/insertHorario")
+	@RequestMapping("/insertHor")
 	public ModelAndView insertH() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("horario", new Horario()); //ojo acá
@@ -209,7 +214,7 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping("/insertIdioma")
+	@RequestMapping("/insertIdiom")
 	public ModelAndView insertI() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("idioma", new Idiomas()); //ojo acá
@@ -217,7 +222,7 @@ public class AdminController {
 		return mav;
 	}
 	
-	@RequestMapping("/insertTP")
+	@RequestMapping("/insertTipoPel")
 	public ModelAndView insertTP() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("tipopelicula", new TipoPelicula()); //ojo acá
@@ -242,6 +247,7 @@ public class AdminController {
 		return mav;
 		}
 
+	//Este está guardando el usuario metido por el cliente xd
 	@RequestMapping(value = "/guardarUsuario", method= RequestMethod.POST)
 	public ModelAndView saveSucursal(@ModelAttribute ("usuario") Usuario usuario) {
 		ModelAndView mav = new ModelAndView();
@@ -253,34 +259,108 @@ public class AdminController {
 		return mav;
 		}
 	
+	//Guardar nuevos actores
 	@RequestMapping(value = "/guardarActor", method= RequestMethod.POST)
-	public ModelAndView saveSucursal(@Valid @ModelAttribute ("actor") Actor actor, BindingResult r) {
+	public ModelAndView saveSucursal(@ModelAttribute ("actor") Actor actor) {
 		ModelAndView mav = new ModelAndView();
 		List<Actor> act = null;
-		if(r.hasErrors()) {
-			mav.setViewName("formActor");
-		}else {
 			actorService.save(actor);
 			act = actorService.findAll();
 			mav.addObject("DatosActor", act);
 			mav.setViewName("redirect:/todos");
-		}
+		
 		return mav;
 		}
 	
 	@RequestMapping(value = "/guardarGenero", method= RequestMethod.POST)
-	public ModelAndView saveSucursal(@Valid @ModelAttribute ("genero") Genero genero, BindingResult r) {
-		ModelAndView mav = new ModelAndView();
-		List<Genero> gen = null;
-		if(r.hasErrors()) {
-			mav.setViewName("formGenero");
-		}else {
+	public ModelAndView saveGenero(@ModelAttribute ("genero") Genero genero) {
+			ModelAndView mav = new ModelAndView();
+			List<Genero> gen = null;
 			generoService.save(genero);
 			gen = generoService.findAll();
-			mav.addObject("DatosCliente", gen);
+			mav.addObject("DatosGenero", gen);
 			mav.setViewName("redirect:/todos");
-		}
+		
 		return mav;
 		}
 	
+	//ACÁ COMIENZAN LOS EDITAR...
+	//EditarUsu EditarPeli EditarActo EditarGen EditarHor EditarIdio
+	@RequestMapping("/EditarUsu")
+	public ModelAndView editarUsu(
+			@RequestParam Integer codigo_usuario) {
+		ModelAndView mav = new ModelAndView();
+		
+		Usuario us = usuarioService.findByCUsuario(codigo_usuario);
+		mav.addObject("usuario", us);
+		mav.setViewName("formCliente");
+		return mav;
+	}
+	
+	@RequestMapping("/EditarPeli")
+	public ModelAndView editarPeli(
+			@RequestParam Integer codigo_peli) {
+		ModelAndView mav = new ModelAndView();
+		
+		Movie mov = movieService.findByCMovie(codigo_peli);
+		mav.addObject("pelicula", mov);
+		mav.setViewName("formPelicula");
+		return mav;
+	}
+		
+	@RequestMapping("/EditarActo")
+	public ModelAndView editarActo(
+			@RequestParam Integer codigo_acto) {
+		ModelAndView mav = new ModelAndView();
+		
+		Actor actor = actorService.findOne(codigo_acto);
+		mav.addObject("actor", actor);
+		mav.setViewName("formActor");
+		return mav;
+	}
+	
+	@RequestMapping("/EditarGen")
+	public ModelAndView editarGen(
+			@RequestParam Integer codigo_genero) {
+		ModelAndView mav = new ModelAndView();
+		
+		Genero genero = generoService.findOne(codigo_genero);
+		mav.addObject("genero", genero);
+		mav.setViewName("formGenero");
+		return mav;
+	}
+	
+	@RequestMapping("/EditarHor")
+	public ModelAndView editarHor(
+			@RequestParam Integer codigo_horario) {
+		ModelAndView mav = new ModelAndView();
+		
+		Horario hor = horarioService.findOne(codigo_horario);
+		mav.addObject("horario", hor);
+		mav.setViewName("formHorario");
+		return mav;
+	}
+	 
+	@RequestMapping("/EditarTipoPel")
+	public ModelAndView editarTipopel(
+			@RequestParam Integer codigo_tipopel) {
+		ModelAndView mav = new ModelAndView();
+		
+		TipoPelicula txp = tpService.findOne(codigo_tipopel);
+		mav.addObject("tipopelicula", txp);
+		mav.setViewName("formTP");
+		return mav;
+	}
+
+	@RequestMapping("/EditarIdio")
+	public ModelAndView editarIdio(
+			@RequestParam Integer codigo_idioma) {
+		ModelAndView mav = new ModelAndView();
+	
+		Idiomas ido = idiomaService.findOne(codigo_idioma);
+		mav.addObject("idioma", ido);
+		mav.setViewName("formIdioma");
+		return mav;
+	}
+
 }

@@ -14,7 +14,7 @@
 
 <form:form id="form5" method="post" modelAttribute="actor" action="${pageContext.request.contextPath}/guardarActor">
 				
-				<form:input type="hidden" id="cActor" path="cActor"/> <br>
+				<form:input type="hidden" id="cActor" path="cActores"/> <br>
 				
 				<label><b>Nombre: </b></label> <br>
 				<form:input class="inputs" type="text" id="aName" path="aName" placeholder="Nombre" /> <br>

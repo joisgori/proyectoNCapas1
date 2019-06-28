@@ -17,7 +17,7 @@
 				<form:input type="hidden" id="cGenero" path="cGenero"/> <br>
 				
 				<label><b>Genero: </b></label> <br>
-				<form:input class="inputs" type="text" id="aGpeli" path="aGepeli" placeholder="Genero" /> <br>
+				<form:input class="inputs" type="text" id="aGpeli" path="aGpeli" placeholder="Genero" /> <br>
 	
 				<input id="save" class="myButton" type="submit" value="Guardar Genero" /> <br>
 		
