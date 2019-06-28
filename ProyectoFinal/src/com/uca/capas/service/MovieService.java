@@ -8,9 +8,9 @@ public interface MovieService {
 
 	public List<Movie> findAll();
 	
-	//Creo el mÃ©todo delete para movie
+	//Creo el método delete para movie
 	public void delete(Movie movie);
 	
-	//Creo el mÃ©todo save
+	//Creo el método save
 	public Movie save(Movie movie);
 }

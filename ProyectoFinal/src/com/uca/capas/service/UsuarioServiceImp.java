@@ -35,4 +35,8 @@ public class UsuarioServiceImp implements UsuarioService{
 		usuarioRepository.delete(usuario);
 	}
 
+	public Usuario findByCUsuario(Integer id) {
+		return usuarioRepository.findByNUsuario(id);
+	}
+
 }
