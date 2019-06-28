@@ -126,11 +126,11 @@ public class AdminController {
 	public ModelAndView elimninarIdioma(@RequestParam ("id_idioma") Integer id_idioma) { //Recibo el id del genero a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
-		Idiomas idioma = idiomaService.findOne(id_idioma);
+		Idiomas idioma = horarioService.findOne(id_horario);
 		//mando la peli para eliminarlo xd
-		idiomaService.delete(idioma);
+		horarioService.delete(horario);
 		//Hago un nuevo llamado de la lista completa de sucursales
-		mav.addObject("DatosIdioma", idiomaService.findAll());
+		mav.addObject("DatosHorario", horarioService.findAll());
 		mav.setViewName("redirect:/todos");
 		return mav;
 	}
