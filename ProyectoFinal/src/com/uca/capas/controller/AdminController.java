@@ -44,9 +44,9 @@ public class AdminController {
 		return mav;
 	}
 	
-	//Método para el delete
+	//Método para el delete de Usuario
 	@RequestMapping("/ElimUsu")//Pongo la ruta que llamará este mappeo
-	public ModelAndView elimninar(@RequestParam ("cUsuario") Integer cUsuario) { //Recibo el id del usuario a eliminar
+	public ModelAndView elimninarUsu(@RequestParam ("cUsuario") Integer cUsuario) { //Recibo el id del usuario a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
 		Usuario user = usuarioService.findByCUsuario(cUsuario);
@@ -57,6 +57,18 @@ public class AdminController {
 		mav.setViewName("redirect:/todos");
 		return mav;
 	}
-	
+
+	@RequestMapping("/ElimPeli")//Pongo la ruta que llamará este mappeo
+	public ModelAndView elimninarPeli(@RequestParam ("id_pelicula") Integer id_pelicula) { //Recibo el id del usuario a eliminar
+		ModelAndView mav = new ModelAndView();
+		//Debo ir a traer un usuario y luego lo envío para eliminar
+		Movie movie = movieService.findByCMovie(id_pelicula);
+		//mando la peli para eliminarlo xd
+		movieService.delete(movie);
+		//Hago un nuevo llamado de la lista completa de sucursales
+		mav.addObject("DatosPelicula", movieService.findAll());
+		mav.setViewName("redirect:/todos");
+		return mav;
+	}
 	
 }

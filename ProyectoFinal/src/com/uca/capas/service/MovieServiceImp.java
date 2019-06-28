@@ -20,7 +20,7 @@ public class MovieServiceImp implements MovieService {
 		return movieRepository.findAll();
 	}
 	
-	@Transactional //Mando a pedir este mÃ©todo delete del crud de jpa
+	@Transactional //Mando a pedir este método delete del crud de jpa
 	public void delete(Movie movie) {
 		movieRepository.delete(movie);
 	}
@@ -29,6 +29,10 @@ public class MovieServiceImp implements MovieService {
 	@Transactional
 	public Movie save(Movie movie) {
 		return movieRepository.save(movie);
+	}
+
+	public Movie findByCMovie(Integer id) {
+		return movieRepository.findByCMovie(id);
 	}
 	
 }
