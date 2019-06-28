@@ -22,14 +22,14 @@ public class AdminController {
 	@Autowired
 	MovieService movieService;
 	
-	@RequestMapping("/")
+	@RequestMapping("/todos")
 	public ModelAndView admin() {
 		ModelAndView mav = new ModelAndView();
-		//List<Usuario> user = null;
+		List<Usuario> user = null;
 		List<Movie> mov = null;
 		try {
 			//user = usuarioRepository.findByNUsuario("Cliente");
-			//user = usuarioRepository.findAll();
+			user = usuarioRepository.findAll();
 			//System.out.println("SI hace algo" + user.toString());
 			mov = movieService.findAll();
 			System.out.println("si hace algo" + mov);
@@ -37,9 +37,8 @@ public class AdminController {
 			e.printStackTrace();
 		}
 		
-		//mav.addObject("DatosCliente", user);
+		mav.addObject("DatosCliente", user);
 		mav.addObject("DatosPelicula", mov);
-		
 		mav.setViewName("tablasAdmin");
 		
 		return mav;

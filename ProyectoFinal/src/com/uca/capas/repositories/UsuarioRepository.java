@@ -19,5 +19,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	public Usuario findByNUsuario(Integer id);
 	
 	public List<Usuario> findAll();
+	
+	public Usuario findByUserAndPass(String user, String pass);
 
 }

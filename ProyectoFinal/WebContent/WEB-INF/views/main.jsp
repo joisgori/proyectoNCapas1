@@ -29,7 +29,7 @@
     <div class="signup__overlay"></div>
   </div>
   <div class="container__child signup__form" style="background:#022397      ">
-    <form action="#">
+    <form method="post" action="${pageContext.request.contextPath}/verifyLogin">
       <div class="form-group">
         <br>
         <label for="username">Users</label>
@@ -38,7 +38,7 @@
       <br>
       <div class="form-group">
         <label for="password">Password</label>
-        <input class="form-control" type="password" name="password" id="password" placeholder="********" required style="background:white"/>
+        <input class="form-control" type="password" name="pass" id="pass" placeholder="********" required style="background:white"/>
       </div>
       <div class="m-t-lg">
         <ul class="list-inline">
