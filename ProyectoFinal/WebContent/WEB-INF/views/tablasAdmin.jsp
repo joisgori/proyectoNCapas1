@@ -28,7 +28,7 @@
 				<td> ${DatosCliente.aApellido} </td>
 				<td> ${DatosCliente.user} </td>
 				<td> ${DatosCliente.saldoCuenta} </td>
-				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimUsu?id_usuario=${DatosCliente.cUsuario}'"
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/ElimUsu?cUsuario=${DatosCliente.cUsuario}'"
 				> Eliminar Cliente</button> </td>
 				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarUsu?id_usuario=${DatosCliente.cUsuario}'" 
 				> Editar Cliente</button> </td>

@@ -16,7 +16,7 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	public List<Usuario> findByNUsuario(@Param("user_type") String user_type);
 	
 	//Método de búsqueda única
-	public Usuario findByNUsuario(Integer id);
+	public Usuario findByCUsuario(Integer id);
 	
 	public List<Usuario> findAll();
 	

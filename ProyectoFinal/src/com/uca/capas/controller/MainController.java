@@ -39,13 +39,6 @@ public class MainController {
 		}else {
 			System.out.println("Algo");
 		}
-	
-		/*if(user.getUser() == "Administrador") {
-			mav.setViewName("redirect:/todos");
-		}else {
-			mav.setViewName("formPelis");
-		}*/
-		
 		return mav;
 	}
 	

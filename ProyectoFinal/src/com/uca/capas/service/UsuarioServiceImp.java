@@ -36,7 +36,7 @@ public class UsuarioServiceImp implements UsuarioService{
 	}
 
 	public Usuario findByCUsuario(Integer id) {
-		return usuarioRepository.findByNUsuario(id);
+		return usuarioRepository.findByCUsuario(id);
 	}
 
 }

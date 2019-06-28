@@ -46,8 +46,7 @@ public class AdminController {
 	
 	//Método para el delete
 	@RequestMapping("/ElimUsu")//Pongo la ruta que llamará este mappeo
-	public ModelAndView elimninar(
-			@RequestParam Integer cUsuario) { //Recibo el id del usuario a eliminar
+	public ModelAndView elimninar(@RequestParam ("cUsuario") Integer cUsuario) { //Recibo el id del usuario a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
 		Usuario user = usuarioService.findByCUsuario(cUsuario);
@@ -55,7 +54,7 @@ public class AdminController {
 		usuarioService.delete(user);
 		//Hago un nuevo llamado de la lista completa de sucursales
 		mav.addObject("DatosCliente", usuarioService.findAll());
-		mav.setViewName("redirect:/");
+		mav.setViewName("redirect:/todos");
 		return mav;
 	}
 	
