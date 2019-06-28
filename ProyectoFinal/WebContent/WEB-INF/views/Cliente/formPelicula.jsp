@@ -6,28 +6,34 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Ingreso Pelicula</title>
+<title>Catalogo</title>
 </head>
 <body>
 
-<h1> Ingreso Pelicula - Administrador</h1>
+<h1>Catalogo peliculas</h1>
 
-<form:form id="form9" method="post" modelAttribute="pelicula" action="${pageContext.request.contextPath}/guardarPelicula">
-				
-				<form:input type="hidden" id="cMovie" path="cMovie"/> <br>
-				
-				<label><b>Nombre Pelicula: </b></label> <br>
-				<form:input class="inputs" type="text" id="pName" path="pName" placeholder="Nombre Pelicula" /> <br>
-				
-				<label><b>Poster: </b></label> <br>
-				<form:input class="inputs" type="text" id="pImage" path="pImage" placeholder="Poster" /> <br> 
-				
-				<label><b>Duraci�n</b></label> <br>
-				<form:input class="inputs" type="date" id="pDuration" path="pDuration" placeholder="Duraci�n" /> <br>
-				
-				<input id="save" class="myButton" type="submit" value="Guardar pelicula" /> <br>
-		
-	</form:form>
+	<table>
+		<tr>
+			<th>ID pelicula</th>
+			<th>Nombre de pelicula</th>
+			<th>Imagen de pelicula</th>
+			<th>Duracion</th>
+		</tr>
+		<c:forEach items="${DatosPelicula}" var="DatosPelicula"> 
+			<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
+			<tr>
+				<td> ${DatosPelicula.cMovie} </td>
+				<td> ${DatosPelicula.pName} </td>
+				<td><img src="resources/imagenes/${DatosPelicula.pImage}.png" style="width:300px;height:300px"/></td>
+				<td> ${DatosPelicula.pDuration} </td>
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimPeli?cMovie=${DatosPelicula.cMovie}'"
+				> Eliminar PelÃ­cula</button> </td>
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarPeli?cMovie=${DatosPelicula.cMovie}'" 
+				> Editar PelÃ­cula</button> </td>
+			</tr>
+		</c:forEach>
+	</table>
+
 	<button	onclick="location.href='${pageContext.request.contextPath}/reservaCliente'">
 	Reserva</button>
 	<br>
