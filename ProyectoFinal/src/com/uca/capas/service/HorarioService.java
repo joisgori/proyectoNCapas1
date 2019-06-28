@@ -10,4 +10,7 @@ public interface HorarioService {
 	
 	public Horario findOne(Integer horario);
 
+	public Horario findAll();
+
 }
+

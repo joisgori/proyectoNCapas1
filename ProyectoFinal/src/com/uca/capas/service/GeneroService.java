@@ -11,4 +11,6 @@ public interface GeneroService {
 	
 	public Genero findOne(Integer genero);
 
+	public Genero findAll();
+
 }

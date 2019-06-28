@@ -28,4 +28,10 @@ public class HorarioServiceImp implements HorarioService{
 		return horarioRepository.findById(horario).get();
 	}
 
+	@Override
+	public Horario findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

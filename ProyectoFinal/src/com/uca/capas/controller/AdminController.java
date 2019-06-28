@@ -13,10 +13,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.uca.capas.domain.Genero;
+import com.uca.capas.domain.Horario;
+import com.uca.capas.domain.Idiomas;
 import com.uca.capas.domain.Movie;
+import com.uca.capas.domain.TipoPelicula;
 import com.uca.capas.domain.Usuario;
+import com.uca.capas.service.GeneroService;
+import com.uca.capas.service.HorarioService;
+import com.uca.capas.service.IdiomaService;
 import com.uca.capas.service.MovieService;
 import com.uca.capas.service.UsuarioService;
+import com.uca.capas.service.TPService;
 
 @Controller
 public class AdminController {
@@ -26,6 +34,18 @@ public class AdminController {
 	
 	@Autowired
 	MovieService movieService;
+	
+	@Autowired
+	GeneroService generoService;
+	
+	@Autowired
+	TPService TPService;
+	
+	@Autowired
+	HorarioService horarioService;
+	
+	@Autowired
+	IdiomaService idiomaService;
 	
 	@RequestMapping("/todos")
 	public ModelAndView admin() {
@@ -72,6 +92,58 @@ public class AdminController {
 		movieService.delete(movie);
 		//Hago un nuevo llamado de la lista completa de sucursales
 		mav.addObject("DatosPelicula", movieService.findAll());
+		mav.setViewName("redirect:/todos");
+		return mav;
+	}
+	
+	@RequestMapping("/ElimGen")//Pongo la ruta que llamará este mappeo
+	public ModelAndView elimninarGene(@RequestParam ("id_genero") Integer id_genero) { //Recibo el id del genero a eliminar
+		ModelAndView mav = new ModelAndView();
+		//Debo ir a traer un usuario y luego lo envío para eliminar
+		Genero genero = generoService.findOne(id_genero);
+		//mando la peli para eliminarlo xd
+		generoService.delete(genero);
+		//Hago un nuevo llamado de la lista completa de sucursales
+		mav.addObject("DatosGenero", generoService.findAll());
+		mav.setViewName("redirect:/todos");
+		return mav;
+	}
+	
+	@RequestMapping("/ElimTP")//Pongo la ruta que llamará este mappeo
+	public ModelAndView elimninarTP(@RequestParam ("id_tipopeli") Integer id_tipopeli) { //Recibo el id del genero a eliminar
+		ModelAndView mav = new ModelAndView();
+		//Debo ir a traer un usuario y luego lo envío para eliminar
+		TipoPelicula tipopelicula = TPService.findOne(id_tipopeli);
+		//mando la peli para eliminarlo xd
+		TPService.delete(tipopelicula);
+		//Hago un nuevo llamado de la lista completa de sucursales
+		mav.addObject("DatosTP", TPService.findAll());
+		mav.setViewName("redirect:/todos");
+		return mav;
+	}
+	
+	@RequestMapping("/ElimIdio")//Pongo la ruta que llamará este mappeo
+	public ModelAndView elimninarIdio(@RequestParam ("id_idioma") Integer id_idioma) { //Recibo el id del genero a eliminar
+		ModelAndView mav = new ModelAndView();
+		//Debo ir a traer un usuario y luego lo envío para eliminar
+		Idiomas idioma = IdiomaService.findOne(id_idioma);
+		//mando la peli para eliminarlo xd
+		IdiomaService.delete(idioma);
+		//Hago un nuevo llamado de la lista completa de sucursales
+		mav.addObject("Datosidioma", IdiomaService.findAll());
+		mav.setViewName("redirect:/todos");
+		return mav;
+	}
+	
+	@RequestMapping("/ElimHor")//Pongo la ruta que llamará este mappeo
+	public ModelAndView elimninarHora(@RequestParam ("id_horario") Integer id_horario) { //Recibo el id del genero a eliminar
+		ModelAndView mav = new ModelAndView();
+		//Debo ir a traer un usuario y luego lo envío para eliminar
+		Horario horario = horarioService.findOne(id_horario);
+		//mando la peli para eliminarlo xd
+		horarioService.delete(horario);
+		//Hago un nuevo llamado de la lista completa de sucursales
+		mav.addObject("DatosHorario", horarioService.findAll());
 		mav.setViewName("redirect:/todos");
 		return mav;
 	}

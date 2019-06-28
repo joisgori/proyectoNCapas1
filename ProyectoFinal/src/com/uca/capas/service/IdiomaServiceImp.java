@@ -28,4 +28,10 @@ public class IdiomaServiceImp  implements IdiomaService{
 		return idiomaRepository.findById(idioma).get();
 	}
 
+	@Override
+	public Idiomas findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

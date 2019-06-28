@@ -19,4 +19,10 @@ public class TPServiceImp implements TPService{
 		return tPRepository.findAll();
 	}
 
+	@Override
+	public TipoPelicula findOne(Integer id_tipopeli) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

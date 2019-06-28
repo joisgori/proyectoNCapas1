@@ -29,4 +29,10 @@ public class GeneroServiceImp implements GeneroService{
 		return generoRepository.findById(genero).get();
 	}
 
+	@Override
+	public Genero findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
