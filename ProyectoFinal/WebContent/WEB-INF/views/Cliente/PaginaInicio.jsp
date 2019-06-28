@@ -19,6 +19,8 @@
 		<tr>
 				<td> ${MisDatos.user} </td>
 				<td> ${MisDatos.saldoCuenta} </td>
+				<button	onclick="location.href='${pageContext.request.contextPath}/salir'">
+	Cerrar sesión</button>
 		</tr>
 </table>
 
