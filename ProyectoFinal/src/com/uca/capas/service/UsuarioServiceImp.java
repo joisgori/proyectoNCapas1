@@ -44,4 +44,14 @@ public class UsuarioServiceImp implements UsuarioService{
 		return usuarioRepository.updateUser(bool, id);
 	}
 
+	@Override
+	public Usuario login(String user, String pass) {
+		return usuarioRepository.findByUserAndPass(user, pass);
+	}
+
+	@Transactional
+	public int inactivateUser(Boolean bool, String motivo, Integer id) {
+		return usuarioRepository.inactivateUser(bool, motivo, id);
+	}
+
 }

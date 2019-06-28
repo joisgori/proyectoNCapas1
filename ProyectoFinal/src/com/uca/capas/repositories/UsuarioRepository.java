@@ -26,5 +26,9 @@ public interface UsuarioRepository extends JpaRepository<Usuario, Integer>{
 	@Modifying(clearAutomatically = true)
 	@Query (value = "update usuario set is_logged=:is_logged where id_usuario=:id_usuario", nativeQuery = true)
 	public int updateUser(@Param("is_logged") Boolean is_logged, @Param("id_usuario") Integer id_usuario);
+	
+	@Modifying(clearAutomatically = true)
+	@Query (value ="update usuario set estado=:estado, motivo=:motivo where id_usuario=:id_usuario", nativeQuery = true)
+	public int inactivateUser(@Param("estado") Boolean estado, @Param("motivo") String motivo, @Param("id_usuario") Integer id_usuario);
 
 }

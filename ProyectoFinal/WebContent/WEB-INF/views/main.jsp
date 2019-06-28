@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,7 +41,8 @@
       <br>
       <div class="form-group">
         <label for="password">Password</label>
-        <input class="form-control" type="password" name="pass" id="pass" placeholder="********" required style="background:white"/>
+        <input class="form-control" type="password"  name="pass" id="pass" placeholder="********" required style="background:white"/>
+  
       </div>
       <div class="m-t-lg">
         <ul class="list-inline">
@@ -57,6 +60,9 @@
     </c:if>
     <c:if test="${resultado eq 0}">
     	<h2>YA ESTAS LOGGEADO!!!</h2>
+    </c:if>
+     <c:if test="${resultado eq 2}">
+    	<h2>NO EXISTE ESTA CUENTA!!!</h2>
     </c:if>
   </div>
 </div>

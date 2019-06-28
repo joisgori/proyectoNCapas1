@@ -57,26 +57,16 @@
 						onclick="location.href='${pageContext.request.contextPath}/EditarUsu?cUsuario=${DatosCliente.cUsuario}'">
 						Editar Cliente</button>
 				</td>
-
+				
 				<td>
-					<button type="button" class="btn btn-info btn-lg"
-						data-toggle="modal" data-target="#myModal">Inactivar</button> 
-						<div class="modal fade" id="myModal" role="dialog">
-						<div class="modal-dialog">
-							<div class="modal-content">
-								<div class="modal-header">
-									<h4 class="modal-title">Comentario Inactivaci√≥n</h4>
-								</div>
-								<div class="modal-body">
-									<input/>
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal">Cerrar</button>
-								</div>
-							</div>
-						</div>
-					</div>
+					<button type="button" onclick ="location.href='${pageContext.request.contextPath}/inactivar?cUsuario=${DatosCliente.cUsuario}'">Aplicar</button>				</td>
+				<td>
+					<c:if test="${resul eq 1}">
+    					<h2>USUARIO INACTIVADO!!!</h2>
+    				</c:if>
+    				<c:if test="${resul eq 0}">
+    					<h2>USUARIO YA EST¡ INACTIVADO</h2>
+    				</c:if>
 				</td>
 			</tr>
 		</c:forEach>

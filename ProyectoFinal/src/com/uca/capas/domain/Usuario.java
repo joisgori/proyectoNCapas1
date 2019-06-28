@@ -14,6 +14,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -73,12 +74,14 @@ public class Usuario {
 	@Column(name = "estado")
 	private Boolean estadoUsuario;
 
+	@NotEmpty(message="No puede estar vacio")
 	@Column(name = "user_login")
 	private String user;
 
+	@NotEmpty(message="No puede estar vacio")
 	@Column(name = "password_login")
 	private String pass;
-
+	
 	@Column(name = "user_type")
 	private String nUsuario;
 
