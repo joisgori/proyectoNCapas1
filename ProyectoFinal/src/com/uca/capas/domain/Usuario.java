@@ -58,6 +58,9 @@ public class Usuario {
 	
 	@Column(name = "departamento")
 	private String uDepartamento;
+	
+	@Column(name = "Motivo")
+	private String uMotivo;
 
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
 	private List<Reserva> reserva;
@@ -69,7 +72,7 @@ public class Usuario {
 
 	public Usuario(Integer cUsuario, String aUsuario, String aApellido, String fNacimiento, String resUsuario,
 			Boolean estadoUsuario, String user, String pass, String nUsuario, Double saldoCuenta, Boolean loggedIn,
-			String uDepartamento, List<Reserva> reserva) {
+			String uDepartamento, List<Reserva> reserva, String uMotivo) {
 		super();
 		this.cUsuario = cUsuario;
 		this.aUsuario = aUsuario;
@@ -84,6 +87,17 @@ public class Usuario {
 		this.loggedIn = loggedIn;
 		this.uDepartamento = uDepartamento;
 		this.reserva = reserva;
+		this.uMotivo = uMotivo;
+	}
+	
+	
+
+	public String getuMotivo() {
+		return uMotivo;
+	}
+
+	public void setuMotivo(String uMotivo) {
+		this.uMotivo = uMotivo;
 	}
 
 	public Integer getcUsuario() {
