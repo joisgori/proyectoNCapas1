@@ -126,11 +126,11 @@ public class AdminController {
 	public ModelAndView elimninarIdioma(@RequestParam ("id_idioma") Integer id_idioma) { //Recibo el id del genero a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
-		Idiomas idioma = idiomaService.findOne(id_idioma);
+		Idiomas idioma = horarioService.findOne(id_horario);
 		//mando la peli para eliminarlo xd
-		idiomaService.delete(idioma);
+		horarioService.delete(horario);
 		//Hago un nuevo llamado de la lista completa de sucursales
-		mav.addObject("DatosIdioma", idiomaService.findAll());
+		mav.addObject("DatosHorario", horarioService.findAll());
 		mav.setViewName("redirect:/todos");
 		return mav;
 	}
@@ -145,6 +145,19 @@ public class AdminController {
 		horarioService.delete(horario);
 		//Hago un nuevo llamado de la lista completa de sucursales
 		mav.addObject("DatosHorario", horarioService.findAll());
+		mav.setViewName("redirect:/todos");
+		return mav;
+	}
+	
+	@RequestMapping("/ElimActor")//Pongo la ruta que llamará este mappeo
+	public ModelAndView elimninarActor(@RequestParam ("id_actor") Integer id_actor) { //Recibo el id del genero a eliminar
+		ModelAndView mav = new ModelAndView();
+		//Debo ir a traer un usuario y luego lo envío para eliminar
+		Actor actor = actorService.findOne(id_actor);
+		//mando la peli para eliminarlo xd
+		actorService.delete(actor);
+		//Hago un nuevo llamado de la lista completa de sucursales
+		mav.addObject("DatosActor", actorService.findAll());
 		mav.setViewName("redirect:/todos");
 		return mav;
 	}
@@ -164,6 +177,46 @@ public class AdminController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pelicula", new Movie()); //ojo acá
 		mav.setViewName("formPelicula");
+		return mav;
+	}
+	
+	@RequestMapping("/insertGenero")
+	public ModelAndView insertG() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("genero", new Genero()); //ojo acá
+		mav.setViewName("formGenero");
+		return mav;
+	}
+	
+	@RequestMapping("/insertActor")
+	public ModelAndView insertA() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("actor", new Actor()); //ojo acá
+		mav.setViewName("formActor");
+		return mav;
+	}
+	
+	@RequestMapping("/insertHorario")
+	public ModelAndView insertH() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("horario", new Horario()); //ojo acá
+		mav.setViewName("formHorario");
+		return mav;
+	}
+	
+	@RequestMapping("/insertIdioma")
+	public ModelAndView insertI() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("idioma", new Idiomas()); //ojo acá
+		mav.setViewName("formIdioma");
+		return mav;
+	}
+	
+	@RequestMapping("/insertTP")
+	public ModelAndView insertTP() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("tipopelicula", new TipoPelicula()); //ojo acá
+		mav.setViewName("formTP");
 		return mav;
 	}
 	
@@ -192,6 +245,36 @@ public class AdminController {
 			us = usuarioService.findAll();
 			mav.addObject("DatosCliente", us);
 			mav.setViewName("redirect:/todos");
+		return mav;
+		}
+	
+	@RequestMapping(value = "/guardarActor", method= RequestMethod.POST)
+	public ModelAndView saveSucursal(@Valid @ModelAttribute ("actor") Actor actor, BindingResult r) {
+		ModelAndView mav = new ModelAndView();
+		List<Actor> act = null;
+		if(r.hasErrors()) {
+			mav.setViewName("formActor");
+		}else {
+			actorService.save(actor);
+			act = actorService.findAll();
+			mav.addObject("DatosActor", act);
+			mav.setViewName("redirect:/todos");
+		}
+		return mav;
+		}
+	
+	@RequestMapping(value = "/guardarGenero", method= RequestMethod.POST)
+	public ModelAndView saveSucursal(@Valid @ModelAttribute ("genero") Genero genero, BindingResult r) {
+		ModelAndView mav = new ModelAndView();
+		List<Genero> gen = null;
+		if(r.hasErrors()) {
+			mav.setViewName("formGenero");
+		}else {
+			generoService.save(genero);
+			gen = generoService.findAll();
+			mav.addObject("DatosCliente", gen);
+			mav.setViewName("redirect:/todos");
+		}
 		return mav;
 		}
 	
