@@ -14,7 +14,7 @@ public interface UsuarioService {
 	//Creo un método de búsqueda por Id xd
 	public Usuario findByCUsuario(Integer id);
 	
-	//Creo los mÃ©todos delete y save
+	//Creo los métodos delete y save
 	public void delete(Usuario usuario);
 	
 	public Usuario save(Usuario usuario);
