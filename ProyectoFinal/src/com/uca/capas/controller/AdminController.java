@@ -58,6 +58,10 @@ public class AdminController {
 		List<Usuario> user = null;
 		List<Movie> mov = null;
 		List<Genero> gen = null;
+		List<Actor> ac = null;
+		List<Horario> ho = null;
+		List<Idiomas> id = null;
+		List<TipoPelicula> tp = null;
 		try {
 			//user = usuarioRepository.findByNUsuario("Cliente");
 			user = usuarioService.findAll();
@@ -65,15 +69,21 @@ public class AdminController {
 			mov = movieService.findAll();
 			//FALTA MANDAR A LLAMAR EL RESTO DE FINDALL...
 			gen = generoService.findAll();
-			
-			System.out.println("si hace algo" + mov);
+			ac = actorService.findAll();
+			ho = horarioService.findAll();
+			id = idiomaService.findAll();
+			tp = tpService.findAll();
+			System.out.println("Hago el llamado completo para mostrarlo al administrador" + mov);
 		}catch (Exception e) {
 			e.printStackTrace();
 		}
-		
 		mav.addObject("DatosCliente", user);
 		mav.addObject("DatosPelicula", mov);
 		mav.addObject("DatosGenero", gen);
+		mav.addObject("DatosActor", ac);
+		mav.addObject("DatosHorario", ho);
+		mav.addObject("DatosIdioma", id);
+		mav.addObject("DatosTipoPeli", tp);
 		mav.setViewName("tablasAdmin");
 		
 		return mav;
@@ -231,22 +241,6 @@ public class AdminController {
 	}
 	
 	//--> ahora sí va la lógica del guardado
-	@RequestMapping(value = "/guardarPelicula", method= RequestMethod.POST)
-	public ModelAndView saveSucursal(@ModelAttribute ("pelicula") Movie movie, BindingResult r) {
-		ModelAndView mav = new ModelAndView();
-		List<Movie> mov = null;
-		if(r.hasErrors()) {
-			mav.setViewName("formPelicula");
-			System.out.println(r.hasErrors());
-		}else {
-			movieService.save(movie);
-			mov = movieService.findAll();
-			mav.addObject("DatosPelicula", mov);
-			mav.setViewName("redirect:/todos");
-		}
-		return mav;
-		}
-
 	//Este está guardando el usuario metido por el cliente xd
 	@RequestMapping(value = "/guardarUsuario", method= RequestMethod.POST)
 	public ModelAndView saveSucursal(@ModelAttribute ("usuario") Usuario usuario) {
@@ -261,7 +255,7 @@ public class AdminController {
 	
 	//Guardar nuevos actores
 	@RequestMapping(value = "/guardarActor", method= RequestMethod.POST)
-	public ModelAndView saveSucursal(@ModelAttribute ("actor") Actor actor) {
+	public ModelAndView saveActor(@ModelAttribute ("actor") Actor actor) {
 		ModelAndView mav = new ModelAndView();
 		List<Actor> act = null;
 			actorService.save(actor);
@@ -282,16 +276,65 @@ public class AdminController {
 			mav.setViewName("redirect:/todos");
 		
 		return mav;
-		}
+	}
+	
+	@RequestMapping(value = "/guardarHorario", method= RequestMethod.POST)
+	public ModelAndView saveGenero(@ModelAttribute ("horario") Horario horario) {
+			ModelAndView mav = new ModelAndView();
+			List<Horario> ho = null;
+			horarioService.save(horario);
+			ho = horarioService.findAll();
+			mav.addObject("DatosHorario", ho);
+			mav.setViewName("redirect:/todos");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/guardarIdioma", method= RequestMethod.POST)
+	public ModelAndView saveGenero(@ModelAttribute ("idioma") Idiomas idioma) {
+			ModelAndView mav = new ModelAndView();
+			List<Idiomas> idi = null;
+			idiomaService.save(idioma);
+			idi = idiomaService.findAll();
+			mav.addObject("DatosIdioma", idi);
+			mav.setViewName("redirect:/todos");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/guardarPelicula", method= RequestMethod.POST)
+	public ModelAndView saveSucursal(@ModelAttribute ("pelicula") Movie movie) {
+		ModelAndView mav = new ModelAndView();
+		List<Movie> mov = null;
+			movieService.save(movie);
+			mov = movieService.findAll();
+			mav.addObject("DatosPelicula", mov);
+			mav.setViewName("redirect:/todos");
+		
+		return mav;
+	}
+	
+	@RequestMapping(value = "/guardarTP", method= RequestMethod.POST)
+	public ModelAndView saveSucursal(@ModelAttribute ("tipopelicula") TipoPelicula tipopelicula) {
+		ModelAndView mav = new ModelAndView();
+		List<TipoPelicula> txp = null;
+			tpService.save(tipopelicula);
+			txp = tpService.findAll();
+			mav.addObject("DatosTipoPeli", txp);
+			mav.setViewName("redirect:/todos");
+		
+		return mav;
+	}
+	
 	
 	//ACÁ COMIENZAN LOS EDITAR...
 	//EditarUsu EditarPeli EditarActo EditarGen EditarHor EditarIdio
 	@RequestMapping("/EditarUsu")
 	public ModelAndView editarUsu(
-			@RequestParam Integer codigo_usuario) {
+			@RequestParam Integer cUsuario) {
 		ModelAndView mav = new ModelAndView();
 		
-		Usuario us = usuarioService.findByCUsuario(codigo_usuario);
+		Usuario us = usuarioService.findByCUsuario(cUsuario);
 		mav.addObject("usuario", us);
 		mav.setViewName("formCliente");
 		return mav;
@@ -299,10 +342,10 @@ public class AdminController {
 	
 	@RequestMapping("/EditarPeli")
 	public ModelAndView editarPeli(
-			@RequestParam Integer codigo_peli) {
+			@RequestParam Integer cMovie) {
 		ModelAndView mav = new ModelAndView();
 		
-		Movie mov = movieService.findByCMovie(codigo_peli);
+		Movie mov = movieService.findByCMovie(cMovie);
 		mav.addObject("pelicula", mov);
 		mav.setViewName("formPelicula");
 		return mav;
@@ -310,10 +353,10 @@ public class AdminController {
 		
 	@RequestMapping("/EditarActo")
 	public ModelAndView editarActo(
-			@RequestParam Integer codigo_acto) {
+			@RequestParam Integer cActores) {
 		ModelAndView mav = new ModelAndView();
 		
-		Actor actor = actorService.findOne(codigo_acto);
+		Actor actor = actorService.findOne(cActores);
 		mav.addObject("actor", actor);
 		mav.setViewName("formActor");
 		return mav;
@@ -321,10 +364,10 @@ public class AdminController {
 	
 	@RequestMapping("/EditarGen")
 	public ModelAndView editarGen(
-			@RequestParam Integer codigo_genero) {
+			@RequestParam Integer cGenero) {
 		ModelAndView mav = new ModelAndView();
 		
-		Genero genero = generoService.findOne(codigo_genero);
+		Genero genero = generoService.findOne(cGenero);
 		mav.addObject("genero", genero);
 		mav.setViewName("formGenero");
 		return mav;
@@ -332,10 +375,10 @@ public class AdminController {
 	
 	@RequestMapping("/EditarHor")
 	public ModelAndView editarHor(
-			@RequestParam Integer codigo_horario) {
+			@RequestParam Integer cHorario) {
 		ModelAndView mav = new ModelAndView();
 		
-		Horario hor = horarioService.findOne(codigo_horario);
+		Horario hor = horarioService.findOne(cHorario);
 		mav.addObject("horario", hor);
 		mav.setViewName("formHorario");
 		return mav;
@@ -343,10 +386,10 @@ public class AdminController {
 	 
 	@RequestMapping("/EditarTipoPel")
 	public ModelAndView editarTipopel(
-			@RequestParam Integer codigo_tipopel) {
+			@RequestParam Integer cTipoP) {
 		ModelAndView mav = new ModelAndView();
 		
-		TipoPelicula txp = tpService.findOne(codigo_tipopel);
+		TipoPelicula txp = tpService.findOne(cTipoP);
 		mav.addObject("tipopelicula", txp);
 		mav.setViewName("formTP");
 		return mav;
@@ -354,10 +397,10 @@ public class AdminController {
 
 	@RequestMapping("/EditarIdio")
 	public ModelAndView editarIdio(
-			@RequestParam Integer codigo_idioma) {
+			@RequestParam Integer cIdioma) {
 		ModelAndView mav = new ModelAndView();
 	
-		Idiomas ido = idiomaService.findOne(codigo_idioma);
+		Idiomas ido = idiomaService.findOne(cIdioma);
 		mav.addObject("idioma", ido);
 		mav.setViewName("formIdioma");
 		return mav;
