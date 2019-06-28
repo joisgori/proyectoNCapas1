@@ -14,7 +14,7 @@
 
 <form:form id="form2" method="post" modelAttribute="usuario" action="${pageContext.request.contextPath}/guardarUsuario">
 				
-				<form:input type="hidden" id="idSuc" path="cUsuario"/> <br>
+				<form:input type="hidden" id="idUsuario" path="cUsuario"/> <br>
 				
 				<label><b>Nombre Usuario: </b></label> <br>
 				<form:input class="inputs" type="text" id="aUsuario" path="aUsuario" placeholder="Nombre Usuario" /> <br>
