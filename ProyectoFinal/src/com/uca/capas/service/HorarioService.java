@@ -1,5 +1,7 @@
 package com.uca.capas.service;
 
+import java.util.List;
+
 import com.uca.capas.domain.Horario;
 
 public interface HorarioService {
@@ -10,7 +12,7 @@ public interface HorarioService {
 	
 	public Horario findOne(Integer horario);
 
-	public Horario findAll();
+	public List<Horario> findAll();
 
 }
 

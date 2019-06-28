@@ -39,7 +39,7 @@ public class AdminController {
 	GeneroService generoService;
 	
 	@Autowired
-	TPService TPService;
+	TPService tpService;
 	
 	@Autowired
 	HorarioService horarioService;
@@ -113,11 +113,11 @@ public class AdminController {
 	public ModelAndView elimninarTP(@RequestParam ("id_tipopeli") Integer id_tipopeli) { //Recibo el id del genero a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
-		TipoPelicula tipopelicula = TPService.findOne(id_tipopeli);
+		TipoPelicula tipopelicula = tpService.findOne(id_tipopeli);
 		//mando la peli para eliminarlo xd
-		TPService.delete(tipopelicula);
+		tpService.delete(tipopelicula);
 		//Hago un nuevo llamado de la lista completa de sucursales
-		mav.addObject("DatosTP", TPService.findAll());
+		mav.addObject("DatosTP", tpService.findAll());
 		mav.setViewName("redirect:/todos");
 		return mav;
 	}

@@ -1,5 +1,7 @@
 package com.uca.capas.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,9 +31,8 @@ public class HorarioServiceImp implements HorarioService{
 	}
 
 	@Override
-	public Horario findAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Horario> findAll() {
+		return horarioRepository.findAll();
 	}
 
 }

@@ -11,4 +11,6 @@ public interface TPService {
 	public TipoPelicula findOne(Integer id_tipopeli);
 
 	public void delete(TipoPelicula tipopelicula);
+	
+	public TipoPelicula save(TipoPelicula tp);
 }

@@ -1,5 +1,7 @@
 package com.uca.capas.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +28,11 @@ public class ActorServiceImp implements ActorService{
 	@Override
 	public Actor findOne(Integer actor) {
 		return actorRepository.findById(actor).get();
+	}
+
+	@Override
+	public List<Actor> findAll() {
+		return actorRepository.findAll();
 	}
 
 	

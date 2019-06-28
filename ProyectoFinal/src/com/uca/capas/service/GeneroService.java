@@ -1,6 +1,8 @@
 package com.uca.capas.service;
 
 
+import java.util.List;
+
 import com.uca.capas.domain.Genero;
 
 public interface GeneroService {
@@ -11,6 +13,6 @@ public interface GeneroService {
 	
 	public Genero findOne(Integer genero);
 
-	public Genero findAll();
+	public List<Genero> findAll();
 
 }
