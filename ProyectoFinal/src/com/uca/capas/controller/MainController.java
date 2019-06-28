@@ -37,27 +37,31 @@ public class MainController {
 		
 		System.out.println("QUE IMPRIMO " + user.getnUsuario());
 		
-		if(user.getnUsuario().equals("Cliente")) {
-			if(user.getEstadoUsuario().equals(true)) {
-				if(user.getLoggedIn().equals(false)) {
-					usuarioService.updateUser(true, user.getcUsuario());
-					mav.setViewName("redirect:/todos");
-				} else {
-					mav.addObject("resultado", 0);
+		
+		if(user != null) {
+			if(user.getnUsuario().equals("Cliente")) {
+				if(user.getEstadoUsuario().equals(true)) {
+					if(user.getLoggedIn().equals(false)) {
+						usuarioService.updateUser(true, user.getcUsuario());
+						mav.setViewName("redirect:/todos");
+					} else {
+						mav.addObject("resultado", 0);
+						mav.setViewName("main");
+						System.out.println("Ya estas loggeado");
+					}
+				}else {
+					mav.addObject("resultado", 1);
 					mav.setViewName("main");
-					System.out.println("Ya estas loggeado");
-				}
+					System.out.println("Usuario Inactivo");
+				}	
+			}
+			else if(user.getnUsuario().equals("Administrador")){
+				mav.setViewName("formPelis");
 			}else {
-				mav.addObject("resultado", 1);
-				mav.setViewName("main");
-				System.out.println("Usuario Inactivo");
-			}	
+				System.out.println("Algo");
+			}
 		}
-		else if(user.getnUsuario().equals("Administrador")){
-			mav.setViewName("formPelis");
-		}else {
-			System.out.println("Algo");
-		}
+		
 		return mav;
 	}	
 	
