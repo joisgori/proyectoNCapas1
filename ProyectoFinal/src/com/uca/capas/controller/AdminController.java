@@ -13,12 +13,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.uca.capas.domain.Actor;
 import com.uca.capas.domain.Genero;
 import com.uca.capas.domain.Horario;
 import com.uca.capas.domain.Idiomas;
 import com.uca.capas.domain.Movie;
 import com.uca.capas.domain.TipoPelicula;
 import com.uca.capas.domain.Usuario;
+import com.uca.capas.service.ActorService;
 import com.uca.capas.service.GeneroService;
 import com.uca.capas.service.HorarioService;
 import com.uca.capas.service.IdiomaService;
@@ -28,6 +30,9 @@ import com.uca.capas.service.TPService;
 
 @Controller
 public class AdminController {
+	
+	@Autowired
+	ActorService actorService;
 	
 	@Autowired
 	UsuarioService usuarioService;
@@ -126,9 +131,9 @@ public class AdminController {
 	public ModelAndView elimninarIdioma(@RequestParam ("id_idioma") Integer id_idioma) { //Recibo el id del genero a eliminar
 		ModelAndView mav = new ModelAndView();
 		//Debo ir a traer un usuario y luego lo envío para eliminar
-		Idiomas idioma = horarioService.findOne(id_horario);
+		Idiomas idioma = idiomaService.findOne(id_idioma);
 		//mando la peli para eliminarlo xd
-		horarioService.delete(horario);
+		idiomaService.delete(idioma);
 		//Hago un nuevo llamado de la lista completa de sucursales
 		mav.addObject("DatosHorario", horarioService.findAll());
 		mav.setViewName("redirect:/todos");
