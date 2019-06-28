@@ -71,4 +71,22 @@ public class AdminController {
 		return mav;
 	}
 	
+	//-------Ahora voy con los controladores para hacer los insert...------------------
+	//Creo un par de controladores que manden a los formularios
+	@RequestMapping("/insertCliente")
+	public ModelAndView insertC() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("usuario", new Usuario()); //ojo acá
+		mav.setViewName("formCliente");
+		return mav;
+	}
+
+	@RequestMapping("/insertPeli")
+	public ModelAndView insertP() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pelicula", new Movie()); //ojo acá
+		mav.setViewName("formPelicula");
+		return mav;
+	}
+	
 }

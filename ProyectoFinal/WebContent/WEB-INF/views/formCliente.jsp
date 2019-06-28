@@ -28,7 +28,7 @@
 				<label><b>Dirección de Residencia:</b></label> <br>
 				<form:input class="inputs" type="text" id="resUsuario" path="resUsuario" placeholder="Residencial" /> <br>
 					
-				<form:radiobutton type="hidden" name="status" path="estadoUsuario" value="true"/>
+				<form:radiobutton name="status" path="estadoUsuario" value="true"/>
 	
 				<label><b>Usuario: </b></label> <br>
 				<form:input class="inputs" type="text" id="user" path="user" placeholder="User" /> <br>

@@ -10,9 +10,9 @@
 </head>
 <body>
 
-<h1> Ingreso Usuario </h1>
+<h1> Ingreso Pelicula </h1>
 
-<form:form id="form2" method="post" modelAttribute="usuario" action="${pageContext.request.contextPath}/guardarUsuario">
+<form:form id="form2" method="post" modelAttribute="pelicula" action="${pageContext.request.contextPath}/guardarPelicula">
 				
 				<form:input type="hidden" id="cMovie" path="cMovie"/> <br>
 				
