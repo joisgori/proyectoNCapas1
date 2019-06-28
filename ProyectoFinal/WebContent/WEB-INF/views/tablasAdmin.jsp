@@ -28,6 +28,12 @@
 			<th>Apellido de usuario</th>
 			<th>User login</th>
 			<th>Saldo de cuenta</th>
+			<th>Fecha Nacimiento</th>
+			<th>Dirección de residencia</th>
+			<th>Estado</th>
+			<th>Departamento</th>
+			<th>Motivo</th>
+			
 		</tr>
 		<c:forEach items="${DatosCliente}" var="DatosCliente">
 			<tr>
@@ -36,6 +42,11 @@
 				<td>${DatosCliente.aApellido}</td>
 				<td>${DatosCliente.user}</td>
 				<td>${DatosCliente.saldoCuenta}</td>
+				<td>${DatosCliente.fNacimiento}</td>
+				<td>${DatosCliente.resUsuario}</td>
+				<td>${DatosCliente.estadoUsuario}</td>
+				<td>${DatosCliente.uDepartamento}</td>
+				<td>${DatosCliente.uMotivo}</td>
 				<td>
 					<button
 						onclick="location.href='${pageContext.request.contextPath}/ElimUsu?cUsuario=${DatosCliente.cUsuario}'">
