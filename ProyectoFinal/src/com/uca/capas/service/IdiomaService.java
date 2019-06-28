@@ -1,5 +1,7 @@
 package com.uca.capas.service;
 
+import java.util.List;
+
 import com.uca.capas.domain.Horario;
 import com.uca.capas.domain.Idiomas;
 
@@ -11,6 +13,6 @@ public interface IdiomaService {
 	
 	public Idiomas findOne(Integer idioma);
 
-	public Idiomas findAll();
+	public List<Idiomas> findAll();
 
 }

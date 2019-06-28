@@ -10,5 +10,5 @@ public interface TPRepository extends JpaRepository<TipoPelicula, Integer>{
 
 	public List<TipoPelicula> findAll();
 
-	public TipoPelicula findOne(Integer id);
+	//public TipoPelicula findOne(Integer id);
 }

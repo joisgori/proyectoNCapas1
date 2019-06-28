@@ -1,5 +1,7 @@
 package com.uca.capas.service;
 
+import java.util.List;
+
 import com.uca.capas.domain.Actor;
 
 public interface ActorService {
@@ -9,4 +11,6 @@ public interface ActorService {
 	public void delete(Actor actor);
 	
 	public Actor findOne(Integer actor);
+	
+	public List<Actor> findAll();
 }
