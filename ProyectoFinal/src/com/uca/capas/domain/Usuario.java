@@ -59,7 +59,7 @@ public class Usuario {
 	@Column(name = "departamento")
 	private String uDepartamento;
 	
-	@Column(name = "Motivo")
+	@Column(name = "motivo")
 	private String uMotivo;
 
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY)
