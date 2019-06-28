@@ -1,5 +1,7 @@
 package com.uca.capas.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -23,19 +26,17 @@ public class SxP {
 	@Column(name="id_salaxpelicula")
 	private Integer cSxP;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_pelicula")
-	private Movie pelicula;
+	@OneToMany(mappedBy = "sxp", fetch = FetchType.LAZY)
+	private List<Movie> pelicula;
 	
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_sala")
 	private Sala sala;
 	
 	
-	public SxP(Integer cSxP, Movie pelicula, Sala sala) {
+	public SxP(Integer cSxP, Sala sala) {
 		super();
 		this.cSxP = cSxP;
-		this.pelicula = pelicula;
 		this.sala = sala;
 	}
 
@@ -53,15 +54,6 @@ public class SxP {
 	public SxP() {
 		super();
 		// TODO Auto-generated constructor stub
-	}
-
-
-	public Movie getPelicula() {
-		return pelicula;
-	}
-
-	public void setPelicula(Movie pelicula) {
-		this.pelicula = pelicula;
 	}
 
 	public Sala getSala() {

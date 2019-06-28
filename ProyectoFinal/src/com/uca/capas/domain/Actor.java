@@ -1,5 +1,7 @@
 package com.uca.capas.domain;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -8,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -28,16 +31,14 @@ public class Actor {
 	@Column(name="apellido_actor")
 	private String aApellido;
 	
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "id_pelicula")
-	private Movie pelicula;
+	@OneToMany(mappedBy = "actores", fetch = FetchType.LAZY)
+	private List<Movie> pelicula;
 	
-	public Actor(Integer cActores, String aName, String aApellido, Movie pelicula) {
+	public Actor(Integer cActores, String aName, String aApellido) {
 		super();
 		this.cActores = cActores;
 		this.aName = aName;
 		this.aApellido = aApellido;
-		this.pelicula = pelicula;
 	}
 	
 	
@@ -73,12 +74,5 @@ public class Actor {
 		this.aApellido = aApellido;
 	}
 
-	public Movie getpelicula() {
-		return pelicula;
-	}
-
-	public void setpelicula(Movie pelicula) {
-		this.pelicula = pelicula;
-	}
 
 }
