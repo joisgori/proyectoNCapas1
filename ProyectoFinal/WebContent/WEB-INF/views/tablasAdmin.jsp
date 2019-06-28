@@ -122,6 +122,57 @@
 			</tr>
 		</c:forEach>
 	</table>
+	
+	<!-- actores, g�nero, horario, idioma -->
+	
+	<br>
+	<h2>Tabla de actores:</h2>
+
+	<label>Agregar nuevo actor</label>
+	<button
+		onclick="location.href='${pageContext.request.contextPath}/insertActor'">Nuevo actor</button>
+	<br>
+
+	<table>
+		<tr>
+			<th>ID Actor</th>
+			<th>Nombre Actor</th>
+			<th>Apellido actor</th>
+		</tr>
+		<c:forEach items="${DatosActor}" var="DatosActor">
+
+			<tr>
+				<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
+				<td>${DatosActor.cActores}</td>
+				<td>${DatosActor.aName}</td>
+				<td>${DatosPelicula.aApellido}</td>
+				<td>
+					<button
+						onClick="location.href='${pageContext.request.contextPath}/ElimActor?id_actor=${DatosActor.cActores}'">
+						Eliminar Actor</button>
+				</td>
+				<td>
+					<button
+						onclick="location.href='${pageContext.request.contextPath}/EditarActor?id_actor=${DatosPelicula.cActores}'">
+						Editar actor</button>
+				</td>
+
+			<tr> 
+			<!-- mando a llamar los nombres que le puse en domain, para llenar esos campos... -->
+				<td> ${DatosPelicula.cMovie} </td>
+				<td> ${DatosPelicula.pName} </td>
+				<td><img src="resources/imagenes/${DatosPelicula.pImage}.png" style="width:300px;height:300px"/></td>
+				<td> ${DatosPelicula.pDuration} </td>
+				<td> <button onClick = "location.href='${pageContext.request.contextPath}/ElimPeli?id_pelicula=${DatosPelicula.cMovie}'"
+				> Eliminar Película</button> </td>
+				<td> <button onclick = "location.href='${pageContext.request.contextPath}/EditarPeli?id_pelicula=${DatosPelicula.cMovie}'" 
+				> Editar Película</button> </td>
+
+			</tr>
+		</c:forEach>
+	</table>
+	
+	
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
 		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
 		crossorigin="anonymous"></script>
