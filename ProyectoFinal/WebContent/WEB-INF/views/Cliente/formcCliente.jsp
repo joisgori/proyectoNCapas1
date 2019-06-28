@@ -10,7 +10,7 @@
 </head>
 <body>
 
-<h1> Ingreso Usuario - Cliente</h1>
+<h1> Ingreso Usuario - Administrador</h1>
 
 <form:form id="form2" method="post" modelAttribute="usuario" action="${pageContext.request.contextPath}/guardarUsuario">
 				
@@ -27,9 +27,10 @@
 
 				<label><b>Dirección de Residencia:</b></label> <br>
 				<form:input class="inputs" type="text" id="resUsuario" path="resUsuario" placeholder="Residencial" /> <br>
-				
-				<!-- estado -->		
-				<form:radiobutton name="status" type="hidden" path="estadoUsuario" value="true"/>
+					
+				<label>Estado Usuario: </label><br>		
+				<form:radiobutton name="status" path="estadoUsuario" value="true"/><label>Activo</label><br>
+				<form:radiobutton name="status" path="estadoUsuario" value="false"/><label>Inactivo</label><br>
 				
 				<label><b>Usuario: </b></label> <br>
 				<form:input class="inputs" type="text" id="user" path="user" placeholder="User" /> <br>
@@ -48,10 +49,10 @@
 				
 				<form:input class="inputs" type="hidden" path="uMotivo" value=" "/>
 				
-				<form:input class="inputs" type="hidden" path="loggedIn" value="true"/>
+				<form:input class="inputs" type="hidden" path="loggedIn" value="false"/>
 				
 				
-				<input id="save" class="myButton" type="submit" value="Guardar la sucursal"/> <br>
+				<input id="save" class="myButton" type="submit" value="Guardar Usuario"/> <br>
 		
 	</form:form>
 
