@@ -10,34 +10,44 @@
 </head>
 <body>
 
-<h1> Acá irá el formulario de una nueva película </h1>
+<h1> Ingreso Usuario </h1>
 
-<!-- <form:form id="form1" method="post" modelAttribute="pelicula" action="${pageContext.request.contextPath}/guardarPelicula">
+<form:form id="form2" method="post" modelAttribute="usuario" action="${pageContext.request.contextPath}/guardarUsuario">
 				
-				<form:input type="hidden" id="idSuc" path="cMovie"/> <br>
+				<form:input type="hidden" id="idSuc" path="cUsuario"/> <br>
 				
-				<label><b>Nombre sucursal:</b></label> <br>
-				<form:input class="inputs" type="text" id="nombre" path="nombreSucursal" placeholder="Ingrese el nombre de sucursal" /> <br>
-				para qué srive el path ...  
+				<label><b>Nombre Usuario: </b></label> <br>
+				<form:input class="inputs" type="text" id="aUsuario" path="aUsuario" placeholder="Nombre Usuario" /> <br>
 				
-				<b>Ubicación sucursal:</b> <br>
-				<form:input class="inputs" type="text" id="ubicacion" path="ubicacionSucursal" placeholder="Ingrese la dirección de la sucursal" /> <br>
+				<label><b>Apellido Usuario: </b></label> <br>
+				<form:input class="inputs" type="text" id="aApellido" path="aApellido" placeholder="Apellido Usuario" /> <br> 
+				
+				<label><b>Fecha de Nacimiento:</b></label> <br>
+				<form:input class="inputs" type="date" id="fNacimiento" path="fNacimiento" placeholder="Fecha de nacimiento" /> <br>
 
-				<b>Horario de apertura:</b> <br>
-				<form:input class="inputs" type="text" id="horarioAp" path="horarioApertura" placeholder="Ingrese hora en formato 12H /AM-PM" /> <br>
-				
-				<b>Horario de cierre: </b> <br>
-				<form:input class="inputs" type="text" id="horarioCi" path="horarioCierre" placeholder="Ingrese hora en formato 12H /AM-PM" /> <br>
+				<label><b>Dirección de Residencia:</b></label> <br>
+				<form:input class="inputs" type="text" id="resUsuario" path="resUsuario" placeholder="Residencial" /> <br>
+					
+				<form:radiobutton type="hidden" name="status" path="estadoUsuario" value="true"/>
+	
+				<label><b>Usuario: </b></label> <br>
+				<form:input class="inputs" type="text" id="user" path="user" placeholder="User" /> <br>
 			
-				<b>Número de mesas: </b> <br>
-				<form:input class="inputs" type="text" id="mesas" path="numeroMesas" placeholder="Ingrese cantidad de mesas" /> <br>
+				<label><b>Contraseña: </b></label> <br>
+				<form:input class="inputs" type="text" id="pass" path="pass" placeholder="Password" /> <br>
 			
-				<b>Nombre del gerente: </b> <br>
-				<form:input class="inputs" type="text" id="nombreGere" path="nombreGerente" placeholder="Ingrese el nombre del gerente" /> <br>
+				<label><b>Tipo Usuario: </b></label> <br>
+				<form:input class="inputs" type="text" id="nUsuario" path="nUsuario" placeholder="Administrador/Cliente" /> <br>
+			
+				<label><b>Saldo: </b></label> <br>
+				<form:input class="inputs" type="number" id="saldoCuenta" path="saldoCuenta" placeholder="Saldo" /> <br>
+			
+				<label><b>Departamento: </b></label> <br>
+				<form:input class="inputs" type="text" id="uDepartamento" path="uDepartamento" placeholder="Departamento" /> <br>
 				
 				<input id="save" class="myButton" type="submit" value="Guardar la sucursal" /> <br>
 		
-	</form:form> -->
+	</form:form>
 
 </body>
 </html>
