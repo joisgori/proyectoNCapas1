@@ -7,4 +7,6 @@ public interface ActorService {
 	public Actor save(Actor actor);
 	
 	public void delete(Actor actor);
+	
+	public Actor findOne(Integer actor);
 }

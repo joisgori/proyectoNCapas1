@@ -23,5 +23,10 @@ public class ActorServiceImp implements ActorService{
 		actorRepository.delete(actor);
 	}
 
+	@Override
+	public Actor findOne(Integer actor) {
+		return actorRepository.findById(actor).get();
+	}
+
 	
 }

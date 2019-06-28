@@ -7,4 +7,7 @@ public interface IdiomaService {
 	public Idiomas save(Idiomas idioma);
 	
 	public void delete(Idiomas idioma);
+	
+	public Idiomas findOne(Integer idioma);
+
 }

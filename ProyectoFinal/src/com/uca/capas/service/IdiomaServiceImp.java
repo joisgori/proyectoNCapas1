@@ -23,4 +23,9 @@ public class IdiomaServiceImp  implements IdiomaService{
 		idiomaRepository.delete(idioma);
 	}
 
+	@Override
+	public Idiomas findOne(Integer idioma) {
+		return idiomaRepository.findById(idioma).get();
+	}
+
 }

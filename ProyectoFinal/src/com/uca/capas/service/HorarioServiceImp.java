@@ -23,4 +23,9 @@ public class HorarioServiceImp implements HorarioService{
 		horarioRepository.delete(horario);
 	}
 
+	@Override
+	public Horario findOne(Integer horario) {
+		return horarioRepository.findById(horario).get();
+	}
+
 }

@@ -24,4 +24,9 @@ public class GeneroServiceImp implements GeneroService{
 		return generoRepository.save(genero);
 	}
 
+	@Override
+	public Genero findOne(Integer genero) {
+		return generoRepository.findById(genero).get();
+	}
+
 }
