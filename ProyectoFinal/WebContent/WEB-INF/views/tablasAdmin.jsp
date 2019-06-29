@@ -22,17 +22,17 @@
 		Nuevo cliente</button>
 	<br>
 
-	<table>
+	<table class="table">
 		<tr>
-			<th>Nombre de usuario</th>
-			<th>Apellido de usuario</th>
-			<th>User login</th>
-			<th>Saldo de cuenta</th>
-			<th>Fecha Nacimiento</th>
-			<th>Dirección de residencia</th>
-			<th>Estado</th>
-			<th>Departamento</th>
-			<th>Motivo</th>
+			<th scope="col">Nombre de usuario</th>
+			<th scope="col">Apellido de usuario</th>
+			<th scope="col">User login</th>
+			<th scope="col">Saldo de cuenta</th>
+			<th scope="col">Fecha Nacimiento</th>
+			<th scope="col">Dirección de residencia</th>
+			<th scope="col">Estado</th>
+			<th scope="col">Departamento</th>
+			<th scope="col">Motivo</th>
 			
 		</tr>
 		<c:forEach items="${DatosCliente}" var="DatosCliente">
